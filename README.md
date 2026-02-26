@@ -4,7 +4,7 @@ Un portafolio web moderno y profesional construido con Next.js 16 y Tailwind CSS
 
 ## 🌐 Demo
 
-**Live Demo**: [https://jhoam-sebastian-munoz.vercel.app](https://jhoam-sebastian-munoz.vercel.app)
+**Live Demo**: [https://portafolio-gamma-beryl.vercel.app](https://portafolio-gamma-beryl.vercel.app)
 
 ## 🚀 Características
 
