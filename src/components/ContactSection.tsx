@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { personalInfo, socialLinks } from '@/lib/portfolio-data';
@@ -8,7 +7,7 @@ import {
   EnvelopeIcon,
   PhoneIcon,
   MapPinIcon,
-  PaperAirplaneIcon
+  ClockIcon
 } from '@heroicons/react/24/outline';
 
 const ContactSection = () => {
@@ -16,16 +15,6 @@ const ContactSection = () => {
     triggerOnce: true,
     threshold: 0.1
   });
-
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -46,28 +35,6 @@ const ContactSection = () => {
       transition: {
         duration: 0.6
       }
-    }
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus('idle'), 5000);
     }
   };
 
@@ -197,123 +164,27 @@ const ContactSection = () => {
               </div>
             </motion.div>
 
-            {/* Contact Form */}
+            {/* Contact Form - Temporarily Disabled */}
             <motion.div variants={itemVariants}>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-white mb-6">
-                  Envíame un mensaje
-                </h3>
-                
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-white font-medium mb-2">
-                      Nombre
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all"
-                      placeholder="Tu nombre"
-                    />
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <ClockIcon className="w-8 h-8 text-yellow-300" />
                   </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-white font-medium mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all"
-                      placeholder="tu@email.com"
-                    />
+                  <h3 className="text-2xl font-bold text-white mb-4">
+                    Formulario en Mantenimiento
+                  </h3>
+                  <p className="text-purple-200 mb-6">
+                    El formulario de contacto está temporalmente en mantenimiento. 
+                    Por favor, contáctame directamente a través de los medios que se muestran a la izquierda.
+                  </p>
+                  <div className="bg-purple-500/20 border border-purple-400/50 rounded-lg p-4">
+                    <p className="text-purple-200 text-sm">
+                      <strong>Respuesta rápida garantizada:</strong> Te responderé a la mayor brevedad posible 
+                      cuando me contactes por email o teléfono.
+                    </p>
                   </div>
-
-                  <div>
-                    <label htmlFor="subject" className="block text-white font-medium mb-2">
-                      Asunto
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all"
-                      placeholder="¿Sobre qué quieres hablar?"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-white font-medium mb-2">
-                      Mensaje
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={5}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all resize-none"
-                      placeholder="Tu mensaje..."
-                    />
-                  </div>
-
-                  {/* Submit Status Messages */}
-                  {submitStatus === 'success' && (
-                    <motion.div
-                      className="p-4 bg-green-500/20 border border-green-400/50 rounded-lg text-green-200"
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                    >
-                      ¡Mensaje enviado con éxito! Te responderé pronto.
-                    </motion.div>
-                  )}
-
-                  {submitStatus === 'error' && (
-                    <motion.div
-                      className="p-4 bg-red-500/20 border border-red-400/50 rounded-lg text-red-200"
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                    >
-                      Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.
-                    </motion.div>
-                  )}
-
-                  <motion.button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                    whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <motion.div
-                          className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                        />
-                        Enviando...
-                      </>
-                    ) : (
-                      <>
-                        Enviar Mensaje
-                        <PaperAirplaneIcon className="w-5 h-5" />
-                      </>
-                    )}
-                  </motion.button>
-                </form>
+                </div>
               </div>
             </motion.div>
           </div>
