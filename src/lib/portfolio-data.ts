@@ -99,45 +99,226 @@ export const education: Education[] = [
 export const certifications: Certification[] = [
   {
     id: "1",
-    name: "React",
+    name: "Práctico Frontend Developer",
     issuer: "Platzi",
-    year: "2025",
+    year: "2026",
+    month: "Febrero",
     status: "completed"
   },
   {
     id: "2",
-    name: "Next.js",
+    name: "Backend con Node.js API Rest con Express.js",
+    issuer: "Platzi",
+    year: "2026",
+    month: "Enero",
+    status: "completed"
+  },
+  {
+    id: "3",
+    name: "TypeScript",
+    issuer: "Platzi",
+    year: "2026",
+    month: "Enero",
+    status: "completed"
+  },
+  {
+    id: "4",
+    name: "Curso de PostgreSQL",
+    issuer: "Platzi",
+    year: "2026",
+    month: "Enero",
+    status: "completed"
+  },
+  {
+    id: "5",
+    name: "Supabase",
+    issuer: "Platzi",
+    year: "2026",
+    month: "Enero",
+    status: "completed"
+  },
+  {
+    id: "6",
+    name: "Cursor AI Code Editor",
+    issuer: "Platzi",
+    year: "2025",
+    month: "Octubre",
+    status: "completed"
+  },
+  {
+    id: "7",
+    name: "Next.js Avanzado",
+    issuer: "Platzi",
+    year: "2025",
+    month: "Julio",
+    status: "completed"
+  },
+  {
+    id: "8",
+    name: "React.js E-commerce Profesional",
+    issuer: "Platzi",
+    year: "2025",
+    month: "Julio",
+    status: "completed"
+  },
+  {
+    id: "9",
+    name: "React.js con TypeScript",
+    issuer: "Platzi",
+    year: "2025",
+    month: "Julio",
+    status: "completed"
+  },
+  {
+    id: "10",
+    name: "TailwindCSS",
+    issuer: "Platzi",
+    year: "2025",
+    month: "Julio",
+    status: "completed"
+  },
+  {
+    id: "11",
+    name: "Reactjs Avanzado",
+    issuer: "Platzi",
+    year: "2025",
+    month: "Junio",
+    status: "completed"
+  },
+  {
+    id: "12",
+    name: "Docker: Fundamentos",
+    issuer: "Platzi",
+    year: "2025",
+    month: "Junio",
+    status: "completed"
+  },
+  {
+    id: "13",
+    name: "Pensamiento Lógico",
+    issuer: "Platzi",
+    year: "2025",
+    month: "Junio",
+    status: "completed"
+  },
+  {
+    id: "14",
+    name: "N8N",
+    issuer: "Platzi",
+    year: "2025",
+    month: "Junio",
+    status: "completed"
+  },
+  {
+    id: "15",
+    name: "React.js",
+    issuer: "Platzi",
+    year: "2025",
+    month: "Mayo",
+    status: "completed"
+  },
+  {
+    id: "16",
+    name: "Elements of Agile in Miro",
+    issuer: "Miro",
+    year: "2025",
+    month: "Mayo",
+    status: "completed"
+  },
+  {
+    id: "17",
+    name: "Technical Diagramming",
+    issuer: "Miro",
+    year: "2025",
+    month: "Mayo",
+    status: "completed"
+  },
+  {
+    id: "18",
+    name: "Miro Essentials",
+    issuer: "Miro",
+    year: "2025",
+    month: "Mayo",
+    status: "completed"
+  },
+  {
+    id: "19",
+    name: "Miro Users Support",
+    issuer: "Miro",
+    year: "2025",
+    month: "Mayo",
+    status: "completed"
+  },
+  {
+    id: "20",
+    name: "Innovation Essentials",
+    issuer: "Miro",
+    year: "2025",
+    month: "Mayo",
+    status: "completed"
+  },
+  {
+    id: "21",
+    name: "Curso Básico RPA",
+    issuer: "PIX Robotics",
+    year: "2024",
+    month: "Noviembre",
+    status: "completed"
+  },
+  {
+    id: "22",
+    name: "Databases Fundamentals",
+    issuer: "SoftServe",
+    year: "2024",
+    month: "Mayo",
+    status: "completed"
+  },
+  {
+    id: "23",
+    name: "JavaScript Essentials 2",
+    issuer: "Cisco",
+    year: "2024",
+    month: "Abril",
+    status: "completed"
+  },
+  {
+    id: "24",
+    name: "PostgreSQL",
+    issuer: "Cisco",
+    year: "2024",
+    month: "Mayo",
+    status: "completed"
+  },
+  {
+    id: "25",
+    name: "JavaScript Essentials 1",
+    issuer: "Cisco",
+    year: "2023",
+    month: "Diciembre",
+    status: "completed"
+  },
+  {
+    id: "26",
+    name: "Scrum Fundamentals",
+    issuer: "ScrumStudy",
+    year: "2023",
+    month: "Septiembre",
+    status: "completed"
+  },
+  {
+    id: "27",
+    name: "Next.js 14",
     issuer: "Platzi",
     year: "2025",
     status: "in_progress"
   },
   {
-    id: "3",
-    name: "TailwindCSS",
-    issuer: "Platzi",
-    year: "2025",
-    status: "completed"
-  },
-  {
-    id: "4",
-    name: "PostgreSQL",
-    issuer: "Cisco",
-    year: "2024",
-    status: "completed"
-  },
-  {
-    id: "5",
-    name: "Scrum Fundamentals",
-    issuer: "ScrumStudy",
-    year: "2023",
-    status: "completed"
-  },
-  {
-    id: "6",
-    name: "JavaScript",
-    issuer: "Cisco",
-    year: "2023",
-    status: "completed"
+    id: "28",
+    name: "Windsurf AI",
+    issuer: "Cascade",
+    year: "2026",
+    month: "Febrero",
+    status: "in_progress"
   }
 ];
 

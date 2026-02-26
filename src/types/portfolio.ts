@@ -31,6 +31,7 @@ export interface Certification {
   name: string;
   issuer: string;
   year: string;
+  month?: string;
   status?: 'completed' | 'in_progress';
 }
 

@@ -29,7 +29,7 @@ const Footer = () => {
                 <h3 className="text-xl font-bold">Jhoam Sebastián</h3>
               </div>
               <p className="text-gray-400 mb-4">
-                Desarrollador Frontend Junior apasionado por crear experiencias web modernas y atractivas.
+                Desarrollador Full Stack apasionado por crear experiencias web modernas y atractivas.
               </p>
               <div className="flex gap-3">
                 {socialLinks.map((link) => (
