@@ -1,6 +1,10 @@
 # Portafolio - Jhoam Sebastián Muñoz Betancourt
 
-Un portafolio web moderno y con animaciones llamativas construido con Next.js 16 y Tailwind CSS.
+Un portafolio web moderno y profesional construido con Next.js 16 y Tailwind CSS que muestra mi experiencia como Desarrollador Full Stack.
+
+## 🌐 Demo
+
+**Live Demo**: [https://jhoam-sebastian-munoz.vercel.app](https://jhoam-sebastian-munoz.vercel.app)
 
 ## 🚀 Características
 
@@ -8,17 +12,30 @@ Un portafolio web moderno y con animaciones llamativas construido con Next.js 16
 - **Animaciones Interactivas**: Efectos de scroll, hover y transiciones con Framer Motion
 - **Totalmente Responsivo**: Optimizado para todos los dispositivos y tamaños de pantalla
 - **Navegación Suave**: Menú de navegación fijo con scroll suave entre secciones
-- **Filtros de Proyectos**: Sistema de filtrado interactivo por tecnologías
-- **Formulario de Contacto**: Formulario funcional con validación y estados de carga
+- **Gestión de Proyectos**: Sistema de filtrado interactivo por tecnologías
+- **Educación y Certificaciones**: Sección completa con 28 certificaciones actualizadas
+- **Experiencia Profesional**: Línea de tiempo animada de experiencia laboral
 - **SEO Optimizado**: Metadatos optimizados para motores de búsqueda
+- **Código Limpio**: TypeScript para tipado estático y mejor mantenibilidad
 
 ## 🛠️ Tecnologías Utilizadas
 
-- **Frontend**: Next.js 16, React, TypeScript
-- **Estilos**: Tailwind CSS
-- **Animaciones**: Framer Motion
-- **Iconos**: Heroicons
-- **Tipografía**: Inter Font
+### Frontend
+- **Next.js 16.1.6**: Framework React con App Router
+- **React 19.2.3**: Librería principal de UI
+- **TypeScript 5**: Tipado estático y mejor desarrollo
+- **Tailwind CSS 4**: Framework de CSS utilitario
+
+### Animaciones e Interacciones
+- **Framer Motion 12.34.3**: Animaciones fluidas y gestos
+- **React Intersection Observer**: Efectos de scroll animados
+
+### Iconos y UI
+- **Heroicons v2**: Iconos consistentes y modernos
+
+### Desarrollo
+- **ESLint 9**: Calidad de código
+- **PostCSS**: Procesamiento de CSS
 
 ## 📁 Estructura del Proyecto
 
@@ -46,17 +63,17 @@ src/
 ## 🎨 Secciones del Portafolio
 
 1. **Hero**: Presentación con animación de partículas y efecto de escritura
-2. **Sobre Mí**: Perfil profesional con visualización de habilidades
-3. **Proyectos**: Galería de proyectos con filtros y modal de detalles
+2. **Sobre Mí**: Perfil profesional con visualización de habilidades técnicas
+3. **Proyectos**: Galería de proyectos con enlaces a demos y repositorios
 4. **Experiencia**: Línea de tiempo animada de experiencia profesional
-5. **Educación**: Formación académica y certificaciones
-6. **Contacto**: Formulario de contacto interactivo
+5. **Educación**: Formación académica y 28 certificaciones técnicas
+6. **Contacto**: Información de contacto y enlaces a redes sociales
 
 ## 🚀 Instalación y Ejecución
 
 1. Clona el repositorio:
 ```bash
-git clone <repository-url>
+git clone https://github.com/JhoamSebastianMunoz/portafolio.git
 cd portafolio
 ```
 
@@ -79,14 +96,33 @@ npm run dev
 - **Animaciones**: 60fps con Framer Motion
 - **Responsive**: Mobile-first approach con Tailwind CSS
 - **SEO**: Metadatos completos y estructura optimizada
+- **TypeScript**: Tipado estático para mayor robustez
+- **Componentes Modulares**: Arquitectura escalable y mantenible
+
+## 📊 Estadísticas del Proyecto
+
+- **28 Certificaciones** en tecnologías modernas
+- **6 Proyectos destacados** con demos funcionales
+- **2+ años de experiencia** en desarrollo web
+- **Tecnologías**: React, Node.js, TypeScript, PostgreSQL, Docker
 
 ## 🎯 Objetivos del Proyecto
 
-- Demostrar habilidades en desarrollo frontend moderno
-- Crear una experiencia de usuario excepcional
+- Demostrar habilidades en desarrollo frontend y backend moderno
+- Crear una experiencia de usuario excepcional y accesible
 - Implementar mejores prácticas de desarrollo web
 - Optimizar para rendimiento y SEO
+- Mostrar crecimiento profesional continuo mediante certificaciones
+
+## 📧 Contacto
+
+- **Email**: jhoamsebastian68@gmail.com
+- **LinkedIn**: [linkedin.com/in/jhoam-sebastian-muñoz-betancourt](https://www.linkedin.com/in/jhoam-sebastian-muñoz-betancourt)
+- **GitHub**: [github.com/JhoamSebastianMunoz](https://github.com/JhoamSebastianMunoz)
+- **Teléfono**: +57 311 695 7990
 
 ---
 
 Desarrollado con ❤️ por Jhoam Sebastián Muñoz Betancourt
+
+⭐ Si te gusta este portafolio, ¡considera darle una estrella en GitHub!
