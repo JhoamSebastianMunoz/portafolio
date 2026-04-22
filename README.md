@@ -1,6 +1,6 @@
 # Portafolio - Jhoam Sebastián Muñoz Betancourt
 
-Un portafolio web moderno y profesional construido con Next.js 16 y Tailwind CSS que muestra mi experiencia como Desarrollador Full Stack.
+Un portafolio web moderno y profesional construido con Next.js 16 y Tailwind CSS que muestra mi experiencia como Full Stack Developer especializado en desarrollo de aplicaciones web escalables y arquitecturas cloud.
 
 ## 🌐 Demo
 
@@ -64,7 +64,7 @@ src/
 
 1. **Hero**: Presentación con animación de partículas y efecto de escritura
 2. **Sobre Mí**: Perfil profesional con visualización de habilidades técnicas
-3. **Proyectos**: Galería de proyectos con enlaces a demos y repositorios
+3. **Proyectos**: Galería de 6 proyectos con enlaces a demos y repositorios
 4. **Experiencia**: Línea de tiempo animada de experiencia profesional
 5. **Educación**: Formación académica y 28 certificaciones técnicas
 6. **Contacto**: Información de contacto y enlaces a redes sociales
@@ -102,9 +102,9 @@ npm run dev
 ## 📊 Estadísticas del Proyecto
 
 - **28 Certificaciones** en tecnologías modernas
-- **6 Proyectos destacados** con demos funcionales
-- **2+ años de experiencia** en desarrollo web
-- **Tecnologías**: React, Node.js, TypeScript, PostgreSQL, Docker
+- **Proyectos en producción** con arquitecturas escalables
+- **Experiencia en desarrollo web** con foco en Clean Code y performance
+- **Tecnologías**: React, Next.js, TypeScript, Node.js, PostgreSQL, Docker, Azure
 
 ## 🎯 Objetivos del Proyecto
 
@@ -123,6 +123,6 @@ npm run dev
 
 ---
 
-Desarrollado con ❤️ por Jhoam Sebastián Muñoz Betancourt
+Desarrollado por Jhoam Sebastián Muñoz Betancourt
 
 ⭐ Si te gusta este portafolio, ¡considera darle una estrella en GitHub!

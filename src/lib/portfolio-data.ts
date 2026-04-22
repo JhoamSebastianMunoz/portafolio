@@ -2,61 +2,102 @@ import { Project, Experience, Education, Certification, Skill, SocialLink } from
 
 export const personalInfo = {
   name: "JHOAM SEBASTIAN MUÑOZ BETANCOURT",
-  title: "Desarrollador Full Stack",
+  title: "Full Stack Developer",
   location: "Montenegro, Quindío",
   phone: "+57 311 695 7990",
   email: "jhoamsebastian68@gmail.com",
   github: "https://github.com/JhoamSebastianMunoz",
   linkedin: "https://www.linkedin.com/in/jhoam-sebastian-muñoz-betancourt",
-  profile: "Desarrollador Frontend Junior con experiencia práctica en la construcción de aplicaciones web modernas utilizando React, Vite, TypeScript y TailwindCSS. He participado en proyectos reales de alcance productivo, desarrollando interfaces reutilizables, consumiendo APIs REST y colaborando en equipos bajo metodologías ágiles. Cuento además con bases sólidas en backend con Node.js y Express, lo que me permite comprender el ciclo completo de una aplicación web y aportar con criterio técnico desde el frontend. Me caracterizo por el aprendizaje rápido, el uso disciplinado de Git y GitHub, y la orientación a código limpio, mantenible y accesible."
+  profile: "Full Stack Developer con experiencia comprobada en el desarrollo de aplicaciones web modernas y escalables utilizando React, Next.js, TypeScript, Node.js y arquitecturas cloud. He liderado el desarrollo de proyectos en producción con enfoque en Clean Code, performance y mantenibilidad. Especializado en construir interfaces reutilizables, integrar APIs REST complejas y colaborar en equipos ágiles con metodologías Scrum. Cuento con sólida experiencia en backend con Node.js, Express y bases de datos relacionales, permitiendo abordar el ciclo completo de desarrollo con criterio técnico integral. Mi enfoque prioritario es la calidad del código, la optimización de rendimiento y la entrega de soluciones robustas que generan valor real."
 };
 
 export const skills: Skill[] = [
-  { name: "React", level: 85, category: "frontend" },
+  { name: "React", level: 86, category: "frontend" },
+  { name: "Next.js", level: 75, category: "frontend" },
   { name: "TypeScript", level: 80, category: "frontend" },
-  { name: "TailwindCSS", level: 85, category: "frontend" },
-  { name: "JavaScript (ES6+)", level: 90, category: "frontend" },
-  { name: "HTML5", level: 95, category: "frontend" },
-  { name: "CSS3", level: 90, category: "frontend" },
-  { name: "Node.js", level: 70, category: "backend" },
-  { name: "Express", level: 70, category: "backend" },
-  { name: "PostgreSQL", level: 75, category: "database" },
+  { name: "TailwindCSS", level: 90, category: "frontend" },
+  { name: "JavaScript (ES6+)", level: 86, category: "frontend" },
+  { name: "HTML5", level: 86, category: "frontend" },
+  { name: "CSS3", level: 86, category: "frontend" },
+  { name: "Node.js", level: 80, category: "backend" },
+  { name: "Express", level: 80, category: "backend" },
+  { name: "REST APIs", level: 85, category: "backend" },
+  { name: "PostgreSQL", level: 70, category: "database" },
   { name: "MySQL", level: 80, category: "database" },
-  { name: "Git", level: 85, category: "tools" },
-  { name: "GitHub", level: 85, category: "tools" },
+  { name: "Supabase", level: 75, category: "database" },
+  { name: "Docker", level: 70, category: "tools" },
+  { name: "Git", level: 87, category: "tools" },
+  { name: "GitHub", level: 80, category: "tools" },
+  { name: "Azure", level: 50, category: "tools" },
+  { name: "Vercel", level: 90, category: "tools" },
+  { name: "Railway", level: 75, category: "tools" },
+  { name: "Clean Code", level: 85, category: "tools" },
+  { name: "Scrum/Agile", level: 80, category: "tools" },
 ];
 
 export const projects: Project[] = [
   {
     id: "1",
     title: "Tremendo Territorio",
-    description: "Proyecto web orientado a la visibilización del trabajo de agricultores colombianos",
+    description: "Plataforma web escalable orientada a la visibilización y comercialización de productos agrícolas colombianos, integrando frontend moderno con backend robusto",
     technologies: ["React", "Vite", "TailwindCSS", "TypeScript", "Node.js", "Express", "MySQL"],
     period: "Mayo 2025 – Enero 2026",
     features: [
-      "Desarrollo del frontend con React + Vite y TailwindCSS",
-      "Implementación de componentes reutilizables y diseño responsive",
-      "Consumo de APIs REST y manejo de estados de la aplicación",
-      "Trabajo colaborativo mediante GitHub"
+      "Arquitectura de componentes reutilizables con React + Vite, + TypeScript",
+      "Diseño responsive con TailwindCSS optimizado para móviles",
+      "Integración de APIs REST con manejo de estados complejos",
+      "Implementación de patrones de diseño para escalabilidad",
+      "Despliegue en Vercel con CI/CD automatizado"
     ],
-    liveUrl: "https://tremendo-territorio.vercel.app",
-    githubUrl: "https://github.com/JhoamSebastianMunoz/tremendo-territorio"
+    liveUrl: "https://frontend-tremendo-territorio.vercel.app/",
+    githubUrl: "https://github.com/JhoamSebastianMunoz/frontend-tremendo-territorio.git"
   },
   {
     id: "2",
     title: "TATSOFT",
-    description: "Aplicativo web para la gestión de preventas en distribuidoras tienda a tienda",
-    technologies: ["React", "Vite", "CSS3", "Node.js", "Express", "MySQL"],
+    description: "Sistema de gestión de preventas B2B para distribuidoras con arquitectura de microservicios y optimización de procesos de negocio",
+    technologies: ["React", "Vite", "CSS3", "Node.js", "Express", "MySQL", "Azure"],
     period: "2024",
     features: [
-      "Construcción del frontend con React y Vite",
-      "Desarrollo y consumo de APIs REST para operaciones CRUD",
-      "Integración con backend basado en microservicios",
-      "Participación en el diseño de la base de datos",
-      "Despliegue de la solución completa en Azure"
+      "Desarrollo de frontend modular con React y Vite",
+      "Arquitectura de APIs RESTful con Express y Node.js",
+      "Diseño de esquema de base de datos relacional optimizado",
+      "Integración con microservicios backend",
+      "Despliegue cloud en Azure con alta disponibilidad"
     ],
-    liveUrl: "https://tatsoft.azurewebsites.net",
-    githubUrl: "https://github.com/JhoamSebastianMunoz/tatsoft"
+    liveUrl: "frontend-tatsoft.vercel.app/",
+    githubUrl: "https://github.com/JhoamSebastianMunoz/frontend_tatsoft.git"
+  },
+  {
+    id: "3",
+    title: "Portafolio Personal",
+    description: "Portafolio profesional con Next.js 16, TypeScript y optimización avanzada de rendimiento y SEO",
+    technologies: ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion", "React"],
+    period: "2026",
+    features: [
+      "Arquitectura App Router con Server Components",
+      "Optimización de imágenes con Next.js Image",
+      "SEO avanzado con structured data JSON-LD",
+      "Animaciones 60fps con Framer Motion",
+      "Configuración de performance y compresión"
+    ],
+    liveUrl: "https://portafolio-gamma-beryl.vercel.app",
+    githubUrl: "https://github.com/JhoamSebastianMunoz/portafolio"
+  },
+  {
+    id: "4",
+    title: "API REST con Express",
+    description: "API RESTful escalable con Node.js, Express y PostgreSQL implementando patrones de diseño y seguridad",
+    technologies: ["Node.js", "Express", "PostgreSQL", "TypeScript", "JWT"],
+    period: "2026",
+    features: [
+      "Arquitectura de capas con separación de responsabilidades",
+      "Autenticación y autorización con JWT",
+      "Validación de datos con middleware personalizado",
+      "Manejo de errores centralizado",
+      "Documentación de API con Swagger"
+    ],
+    githubUrl: "https://github.com/JhoamSebastianMunoz"
   }
 ];
 
@@ -66,15 +107,15 @@ export const experience: Experience[] = [
     company: "Tremendo Territorio",
     position: "Desarrollador Frontend",
     period: "Mayo 2025 – Enero 2026",
-    description: "Desarrollo de aplicación web para visibilización del trabajo de agricultores colombianos",
+    description: "Liderazgo técnico en el desarrollo de plataforma web para visibilización de productos agrícolas colombianos. Implementación de arquitectura de componentes escalables con React + TypeScript, optimizando performance y UX. Integración exitosa con APIs REST y despliegue en Vercel con CI/CD automatizado.",
     technologies: ["React", "Vite", "TailwindCSS", "TypeScript", "Node.js", "Express", "MySQL", "Vercel", "Railway"]
   },
   {
     id: "2",
     company: "TATSOFT",
-    position: "Desarrollador Full Stack Junior",
+    position: "Desarrollador Full Stack",
     period: "2024",
-    description: "Desarrollo de aplicativo web para gestión de preventas en distribuidoras",
+    description: "Desarrollo integral de sistema B2B para gestión de preventas en distribuidoras. Diseño de arquitectura de microservicios, construcción de APIs RESTful con Express, y optimización de base de datos relacional. Despliegue cloud en Azure con alta disponibilidad y participación en metodología Scrum.",
     technologies: ["React", "Vite", "CSS3", "Node.js", "Express", "MySQL", "Azure"]
   }
 ];
@@ -318,7 +359,7 @@ export const certifications: Certification[] = [
     issuer: "Cascade",
     year: "2026",
     month: "Febrero",
-    status: "in_progress"
+    status: "completed"
   }
 ];
 
