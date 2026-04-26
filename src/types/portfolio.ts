@@ -1,3 +1,9 @@
+export interface TechnicalNotice {
+  type: 'warning' | 'info';
+  title: string;
+  message: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -7,6 +13,7 @@ export interface Project {
   features: string[];
   githubUrl?: string;
   liveUrl?: string;
+  technicalNotice?: TechnicalNotice;
 }
 
 export interface Experience {

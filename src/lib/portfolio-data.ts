@@ -50,7 +50,12 @@ export const projects: Project[] = [
       "Despliegue en Vercel con CI/CD automatizado"
     ],
     liveUrl: "https://frontend-tremendo-territorio.vercel.app/",
-    githubUrl: "https://github.com/JhoamSebastianMunoz/frontend-tremendo-territorio.git"
+    githubUrl: "https://github.com/JhoamSebastianMunoz/frontend-tremendo-territorio.git",
+    technicalNotice: {
+      type: "warning",
+      title: "Servicios Backend Temporalmente No Disponibles",
+      message: "Ciertos servicios del backend están deshabilitados por falta de renovación de pago de servicios de despliegue. Por esta razón, algunas secciones del frontend podrían no visualizar datos debido a fallos en el fetch, aunque la interfaz permanece funcional."
+    }
   },
   {
     id: "2",
@@ -66,7 +71,12 @@ export const projects: Project[] = [
       "Despliegue cloud en Azure con alta disponibilidad"
     ],
     liveUrl: "frontend-tatsoft.vercel.app/",
-    githubUrl: "https://github.com/JhoamSebastianMunoz/frontend_tatsoft.git"
+    githubUrl: "https://github.com/JhoamSebastianMunoz/frontend_tatsoft.git",
+    technicalNotice: {
+      type: "warning",
+      title: "Aviso Técnico - Despliegue Temporalmente Offline",
+      message: "La arquitectura de microservicios está completamente funcional e integrada con Azure Services. Sin embargo, el despliegue está temporalmente offline debido a la expiración de créditos de suscripción en Azure. La versión 2 incluirá migración de infraestructura para optimizar costos y disponibilidad, manteniendo la lógica de microservicios pero cambiando de proveedor de hosting."
+    }
   },
   {
     id: "3",
@@ -86,18 +96,18 @@ export const projects: Project[] = [
   },
   {
     id: "4",
-    title: "API REST con Express",
-    description: "API RESTful escalable con Node.js, Express y PostgreSQL implementando patrones de diseño y seguridad",
-    technologies: ["Node.js", "Express", "PostgreSQL", "TypeScript", "JWT"],
+    title: "Microservice Backend - Productos 🛍️",
+    description: "Microservicio backend robusto para gestión de productos con arquitectura escalable, autenticación JWT y almacenamiento en la nube",
+    technologies: ["Express", "TypeScript", "MySQL", "JWT", "Supabase Storage"],
     period: "2026",
     features: [
-      "Arquitectura de capas con separación de responsabilidades",
-      "Autenticación y autorización con JWT",
-      "Validación de datos con middleware personalizado",
-      "Manejo de errores centralizado",
-      "Documentación de API con Swagger"
+      "Arquitectura MVC escalable con manejo global de errores",
+      "Seguridad avanzada: Autenticación JWT, encriptación con bcryptjs y validación de datos con express-validator",
+      "Documentación interactiva con Swagger UI",
+      "Gestión de archivos multimedia integrada con Supabase Cloud Storage"
     ],
-    githubUrl: "https://github.com/JhoamSebastianMunoz"
+    liveUrl: "https://microservice-backend-products-v2.vercel.app/",
+    githubUrl: "https://github.com/JhoamSebastianMunoz/microservice_backend_products_v2.git"
   }
 ];
 

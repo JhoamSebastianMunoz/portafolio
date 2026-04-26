@@ -115,8 +115,8 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <p className="text-gray-400 flex items-center justify-center gap-2">
-              Hecho con 
+            <div className="text-gray-400 flex items-center justify-center gap-2">
+              Hecho con
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
@@ -124,7 +124,7 @@ const Footer = () => {
                 <HeartIcon className="w-4 h-4 text-red-500" />
               </motion.div>
               por Jhoam Sebastián • {currentYear}
-            </p>
+            </div>
           </motion.div>
         </div>
       </div>
