@@ -1,117 +1,38 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { experience } from '@/lib/portfolio-data';
-import { 
-  BuildingOfficeIcon,
-  CalendarIcon,
-  CodeBracketIcon
-} from '@heroicons/react/24/outline';
+import { CalendarIcon, BuildingOfficeIcon } from '@heroicons/react/24/outline';
+import SectionHeading from './SectionHeading';
+import ScrollReveal from './ScrollReveal';
 
-const ExperienceSection = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6
-      }
-    }
-  };
-
-  const timelineVariants = {
-    hidden: { scaleX: 0 },
-    visible: {
-      scaleX: 1,
-      transition: {
-        duration: 1,
-        ease: [0.4, 0, 0.2, 1] as const
-      }
-    }
-  };
-
+export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-20 bg-gray-50">
+    <section id="experience" className="py-24 bg-white scroll-mt-16">
       <div className="container mx-auto px-6">
-        <motion.div
-          ref={ref}
-          className="max-w-4xl mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          {/* Section Title */}
-          <motion.div
-            className="text-center mb-16"
-            variants={itemVariants}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Experiencia <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600">Profesional</span>
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto"></div>
-          </motion.div>
+        <div className="max-w-4xl mx-auto">
+          <SectionHeading
+            label="Experiencia"
+            highlight="Profesional"
+            subtitle="Trayectoria construyendo productos digitales con impacto real"
+          />
 
-          {/* Timeline */}
           <div className="relative">
-            {/* Timeline Line */}
-            <motion.div
-              className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-600 to-blue-600 transform md:-translate-x-1/2"
-              variants={timelineVariants}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              style={{ transformOrigin: "top" }}
-            />
+            <div className="absolute left-8 md:left-12 top-0 bottom-0 w-px bg-gradient-to-b from-purple-600 via-blue-600 to-transparent" />
 
-            {/* Experience Items */}
             <div className="space-y-12">
-              {experience.map((exp, index) => (
-                <motion.div
-                  key={exp.id}
-                  className={`relative flex items-center ${
-                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                  }`}
-                  variants={itemVariants}
-                >
-                  {/* Timeline Dot */}
+              {experience.map((exp, idx) => (
+                <ScrollReveal key={exp.id} delay={idx * 0.15}>
                   <motion.div
-                    className="absolute left-8 md:left-1/2 w-4 h-4 bg-white border-4 border-purple-600 rounded-full transform -translate-x-1/2 z-10"
-                    whileHover={{ scale: 1.2 }}
-                    style={{
-                      left: '2rem'
-                    }}
-                  />
-
-                  {/* Content Card */}
-                  <motion.div
-                    className={`ml-16 md:ml-0 md:w-5/12 ${
-                      index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'
-                    }`}
-                    whileHover={{ scale: 1.02 }}
+                    className="relative pl-16 md:pl-20"
+                    whileHover={{ x: 4 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-                      {/* Header */}
-                      <div className={`flex items-center gap-3 mb-4 ${
-                        index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                      }`}>
-                        <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-white flex-shrink-0">
+                    <div className="absolute left-[21px] md:left-[41px] top-1 w-3 h-3 bg-white border-2 border-purple-600 rounded-full" />
+
+                    <div className="bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-100 hover:border-purple-100 hover:shadow-lg transition-all duration-300">
+                      <div className="flex items-center gap-4 mb-1">
+                        <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-blue-600 rounded-xl flex items-center justify-center text-white shrink-0">
                           <BuildingOfficeIcon className="w-6 h-6" />
                         </div>
                         <div>
@@ -120,48 +41,42 @@ const ExperienceSection = () => {
                         </div>
                       </div>
 
-                      {/* Period */}
-                      <div className={`flex items-center gap-2 text-gray-500 text-sm mb-3 ${
-                        index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                      }`}>
+                      <div className="flex items-center gap-2 text-sm text-gray-500 mt-3 mb-4">
                         <CalendarIcon className="w-4 h-4" />
                         <span>{exp.period}</span>
                       </div>
 
-                      {/* Description */}
-                      <p className="text-gray-700 mb-4">{exp.description}</p>
+                      <p className="text-gray-700 mb-5 leading-relaxed">
+                        {exp.description}
+                      </p>
 
-                      {/* Technologies */}
-                      <div>
-                        <div className={`flex items-center gap-2 text-sm font-medium text-gray-900 mb-2 ${
-                          index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                        }`}>
-                          <CodeBracketIcon className="w-4 h-4" />
-                          <span>Tecnologías:</span>
-                        </div>
-                        <div className={`flex flex-wrap gap-2 ${
-                          index % 2 === 0 ? 'md:justify-end' : ''
-                        }`}>
-                          {exp.technologies.map((tech) => (
-                            <span
-                              key={tech}
-                              className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
+                      <div className="space-y-2.5 mb-5">
+                        {exp.achievements.map((achievement, i) => (
+                          <div key={i} className="flex items-start gap-3">
+                            <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 shrink-0" />
+                            <span className="text-sm text-gray-700">{achievement}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="flex flex-wrap gap-1.5">
+                        {exp.technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1 bg-purple-50 text-purple-700 rounded-lg text-xs font-medium"
+                          >
+                            {tech}
+                          </span>
+                        ))}
                       </div>
                     </div>
                   </motion.div>
-                </motion.div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
-};
-
-export default ExperienceSection;
+}

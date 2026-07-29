@@ -11,6 +11,7 @@ export interface Project {
   technologies: string[];
   period: string;
   features: string[];
+  impact: string[];
   githubUrl?: string;
   liveUrl?: string;
   technicalNotice?: TechnicalNotice;
@@ -22,6 +23,7 @@ export interface Experience {
   position: string;
   period: string;
   description: string;
+  achievements: string[];
   technologies: string[];
 }
 
@@ -39,17 +41,23 @@ export interface Certification {
   issuer: string;
   year: string;
   month?: string;
+  category?: string;
   status?: 'completed' | 'in_progress';
-}
-
-export interface Skill {
-  name: string;
-  level: number;
-  category: 'frontend' | 'backend' | 'database' | 'tools';
 }
 
 export interface SocialLink {
   name: string;
   url: string;
   icon: string;
+}
+
+export interface Language {
+  name: string;
+  level: string;
+}
+
+export interface Stat {
+  label: string;
+  value: string;
+  suffix?: string;
 }

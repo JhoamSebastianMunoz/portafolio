@@ -1,68 +1,62 @@
-import { Project, Experience, Education, Certification, Skill, SocialLink } from '@/types/portfolio';
+import { Project, Experience, Education, Certification, SocialLink, Language, Stat } from '@/types/portfolio';
 
 export const personalInfo = {
   name: "JHOAM SEBASTIAN MUÑOZ BETANCOURT",
   title: "Full Stack Developer",
+  subtitle: "React · TypeScript · Node.js · Power BI",
   location: "Montenegro, Quindío",
   phone: "+57 311 695 7990",
   email: "jhoamsebastian68@gmail.com",
   github: "https://github.com/JhoamSebastianMunoz",
   linkedin: "https://www.linkedin.com/in/jhoam-sebastian-muñoz-betancourt",
-  profile: "Full Stack Developer con experiencia comprobada en el desarrollo de aplicaciones web modernas y escalables utilizando React, Next.js, TypeScript, Node.js y arquitecturas cloud. He liderado el desarrollo de proyectos en producción con enfoque en Clean Code, performance y mantenibilidad. Especializado en construir interfaces reutilizables, integrar APIs REST complejas y colaborar en equipos ágiles con metodologías Scrum. Cuento con sólida experiencia en backend con Node.js, Express y bases de datos relacionales, permitiendo abordar el ciclo completo de desarrollo con criterio técnico integral. Mi enfoque prioritario es la calidad del código, la optimización de rendimiento y la entrega de soluciones robustas que generan valor real."
+  profile: "Desarrollador Full Stack con 2+ años de experiencia diseñando y desplegando aplicaciones web con React, TypeScript y Node.js. He reducido tiempos operativos de gestión de preventas mediante optimización de consultas SQL y arquitecturas REST limpias. Experiencia desplegando en Azure, Vercel y Railway con CI/CD funcional en producción. Complemento el desarrollo con análisis de datos en Power BI para convertir información en decisiones de negocio."
 };
 
-export const skills: Skill[] = [
-  { name: "React", level: 86, category: "frontend" },
-  { name: "Next.js", level: 75, category: "frontend" },
-  { name: "TypeScript", level: 80, category: "frontend" },
-  { name: "TailwindCSS", level: 90, category: "frontend" },
-  { name: "JavaScript (ES6+)", level: 86, category: "frontend" },
-  { name: "HTML5", level: 86, category: "frontend" },
-  { name: "CSS3", level: 86, category: "frontend" },
-  { name: "Node.js", level: 80, category: "backend" },
-  { name: "Express", level: 80, category: "backend" },
-  { name: "REST APIs", level: 85, category: "backend" },
-  { name: "PostgreSQL", level: 70, category: "database" },
-  { name: "MySQL", level: 80, category: "database" },
-  { name: "Supabase", level: 75, category: "database" },
-  { name: "Docker", level: 70, category: "tools" },
-  { name: "Git", level: 87, category: "tools" },
-  { name: "GitHub", level: 80, category: "tools" },
-  { name: "Azure", level: 50, category: "tools" },
-  { name: "Vercel", level: 90, category: "tools" },
-  { name: "Railway", level: 75, category: "tools" },
-  { name: "Clean Code", level: 85, category: "tools" },
-  { name: "Scrum/Agile", level: 80, category: "tools" },
+export const stats: Stat[] = [
+  { label: "Años de Experiencia", value: "2+" },
+  { label: "Proyectos en Producción", value: "4" },
+  { label: "Tecnologías Dominadas", value: "15+" },
+  { label: "Certificaciones", value: "12+" },
+];
+
+export const techStack = [
+  "React", "TypeScript", "Next.js", "Node.js", "Express",
+  "TailwindCSS", "PostgreSQL", "MySQL", "Docker", "Azure",
+  "Vercel", "Power BI", "Git", "Supabase", "JWT"
 ];
 
 export const projects: Project[] = [
   {
     id: "1",
     title: "Tremendo Territorio",
-    description: "Plataforma web escalable orientada a la visibilización y comercialización de productos agrícolas colombianos, integrando frontend moderno con backend robusto",
+    description: "Plataforma web para visibilizar y comercializar productos agrícolas colombianos, con enfoque en escalabilidad y experiencia de usuario.",
     technologies: ["React", "Vite", "TailwindCSS", "TypeScript", "Node.js", "Express", "MySQL"],
-    period: "Mayo 2025 – Enero 2026",
+    period: "May 2025 – Ene 2026",
     features: [
-      "Arquitectura de componentes reutilizables con React + Vite, + TypeScript",
+      "Arquitectura de componentes reutilizables con React + Vite + TypeScript",
       "Diseño responsive con TailwindCSS optimizado para móviles",
-      "Integración de APIs REST con manejo de estados complejos",
-      "Implementación de patrones de diseño para escalabilidad",
+      "Integración de APIs REST con manejo de estados global (Context API)",
       "Despliegue en Vercel con CI/CD automatizado"
+    ],
+    impact: [
+      "Construí 15+ componentes reutilizables, reduciendo tiempo de desarrollo de nuevas vistas",
+      "Implementé arquitectura limpia con Context API, reduciendo llamadas redundantes a APIs",
+      "Colaboré en equipo con GitFlow, manteniendo entregas continuas organizadas"
     ],
     liveUrl: "https://frontend-tremendo-territorio.vercel.app/",
     githubUrl: "https://github.com/JhoamSebastianMunoz/frontend-tremendo-territorio.git",
     technicalNotice: {
       type: "warning",
       title: "Servicios Backend Temporalmente No Disponibles",
-      message: "Ciertos servicios del backend están deshabilitados por falta de renovación de pago de servicios de despliegue. Por esta razón, algunas secciones del frontend podrían no visualizar datos debido a fallos en el fetch, aunque la interfaz permanece funcional."
+      message: "Ciertos servicios del backend están deshabilitados por falta de renovación de pago de servicios de despliegue. La interfaz frontal permanece funcional."
     }
   },
   {
     id: "2",
     title: "TATSOFT",
-    description: "Sistema de gestión de preventas B2B para distribuidoras con arquitectura de microservicios y optimización de procesos de negocio",
+    description: "Sistema de gestión de preventas B2B para distribuidoras con arquitectura de microservicios y despliegue cloud.",
     technologies: ["React", "Vite", "CSS3", "Node.js", "Express", "MySQL", "Azure"],
-    period: "2024",
+    period: "Jul 2023 – Abr 2025",
     features: [
       "Desarrollo de frontend modular con React y Vite",
       "Arquitectura de APIs RESTful con Express y Node.js",
@@ -70,18 +64,23 @@ export const projects: Project[] = [
       "Integración con microservicios backend",
       "Despliegue cloud en Azure con alta disponibilidad"
     ],
+    impact: [
+      "Reduje el tiempo de ejecución de procesos clave de preventas optimizando consultas SQL",
+      "Desarrollé y mantuve APIs REST para operaciones CRUD integradas con microservicios",
+      "Configuré pipelines de CI/CD en Azure garantizando despliegues continuos sin downtime"
+    ],
     liveUrl: "frontend-tatsoft.vercel.app/",
     githubUrl: "https://github.com/JhoamSebastianMunoz/frontend_tatsoft.git",
     technicalNotice: {
       type: "warning",
-      title: "Aviso Técnico - Despliegue Temporalmente Offline",
-      message: "La arquitectura de microservicios está completamente funcional e integrada con Azure Services. Sin embargo, el despliegue está temporalmente offline debido a la expiración de créditos de suscripción en Azure. La versión 2 incluirá migración de infraestructura para optimizar costos y disponibilidad, manteniendo la lógica de microservicios pero cambiando de proveedor de hosting."
+      title: "Despliegue Temporalmente Offline",
+      message: "La arquitectura de microservicios está completamente funcional. El despliegue está offline por expiración de créditos Azure. La v2 migrará a infraestructura de menor costo."
     }
   },
   {
     id: "3",
     title: "Portafolio Personal",
-    description: "Portafolio profesional con Next.js 16, TypeScript y optimización avanzada de rendimiento y SEO",
+    description: "Portafolio profesional con Next.js 16, TypeScript y optimización avanzada de rendimiento y SEO.",
     technologies: ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion", "React"],
     period: "2026",
     features: [
@@ -91,20 +90,30 @@ export const projects: Project[] = [
       "Animaciones 60fps con Framer Motion",
       "Configuración de performance y compresión"
     ],
+    impact: [
+      "Implementación full performance con compresión y optimización de assets",
+      "SEO estructurado con datos semánticos y Open Graph",
+      "Diseño responsivo con métricas Core Web Vitals optimizadas"
+    ],
     liveUrl: "https://portafolio-gamma-beryl.vercel.app",
     githubUrl: "https://github.com/JhoamSebastianMunoz/portafolio"
   },
   {
     id: "4",
-    title: "Microservice Backend - Productos 🛍️",
-    description: "Microservicio backend robusto para gestión de productos con arquitectura escalable, autenticación JWT y almacenamiento en la nube",
+    title: "Microservice Backend - Productos",
+    description: "Microservicio backend robusto para gestión de productos con autenticación JWT, almacenamiento cloud y documentación interactiva.",
     technologies: ["Express", "TypeScript", "MySQL", "JWT", "Supabase Storage"],
     period: "2026",
     features: [
       "Arquitectura MVC escalable con manejo global de errores",
-      "Seguridad avanzada: Autenticación JWT, encriptación con bcryptjs y validación de datos con express-validator",
+      "Seguridad avanzada: JWT, bcryptjs y express-validator",
       "Documentación interactiva con Swagger UI",
-      "Gestión de archivos multimedia integrada con Supabase Cloud Storage"
+      "Gestión de archivos multimedia con Supabase Cloud Storage"
+    ],
+    impact: [
+      "API documentada con Swagger para integración con equipos frontend",
+      "Arquitectura MVC que permite escalar funcionalidades sin reescribir",
+      "Almacenamiento cloud para imágenes de producto con acceso seguro"
     ],
     liveUrl: "https://microservice-backend-products-v2.vercel.app/",
     githubUrl: "https://github.com/JhoamSebastianMunoz/microservice_backend_products_v2.git"
@@ -116,16 +125,26 @@ export const experience: Experience[] = [
     id: "1",
     company: "Tremendo Territorio",
     position: "Desarrollador Frontend",
-    period: "Mayo 2025 – Enero 2026",
-    description: "Liderazgo técnico en el desarrollo de plataforma web para visibilización de productos agrícolas colombianos. Implementación de arquitectura de componentes escalables con React + TypeScript, optimizando performance y UX. Integración exitosa con APIs REST y despliegue en Vercel con CI/CD automatizado.",
+    period: "May 2025 – Ene 2026",
+    description: "Plataforma web para visibilizar el trabajo de agricultores colombianos, conectando el campo con consumidores a través de tecnología moderna.",
+    achievements: [
+      "Construí 15+ componentes reutilizables en React + Vite + TailwindCSS, reduciendo el tiempo de desarrollo de nuevas vistas mediante un sistema de diseño consistente",
+      "Implementé arquitectura limpia con manejo centralizado de estado global (Context API), optimizando el consumo de APIs REST y reduciendo llamadas redundantes",
+      "Colaboré en equipo con GitFlow en GitHub, manteniendo un historial de commits organizado y entregas continuas"
+    ],
     technologies: ["React", "Vite", "TailwindCSS", "TypeScript", "Node.js", "Express", "MySQL", "Vercel", "Railway"]
   },
   {
     id: "2",
     company: "TATSOFT",
     position: "Desarrollador Full Stack",
-    period: "2024",
-    description: "Desarrollo integral de sistema B2B para gestión de preventas en distribuidoras. Diseño de arquitectura de microservicios, construcción de APIs RESTful con Express, y optimización de base de datos relacional. Despliegue cloud en Azure con alta disponibilidad y participación en metodología Scrum.",
+    period: "Jul 2023 – Abr 2025",
+    description: "Aplicativo web de gestión de preventas para distribuidoras, optimizando procesos comerciales con arquitectura de microservicios.",
+    achievements: [
+      "Reduje el tiempo de ejecución de procesos clave de preventas optimizando consultas SQL en MySQL, mejorando la velocidad de respuesta del equipo comercial",
+      "Desarrollé y mantuve APIs REST para operaciones CRUD, integradas con un backend basado en microservicios",
+      "Configuré pipelines de CI/CD en Azure para frontend y backend, garantizando despliegues continuos sin downtime"
+    ],
     technologies: ["React", "Vite", "CSS3", "Node.js", "Express", "MySQL", "Azure"]
   }
 ];
@@ -141,236 +160,46 @@ export const education: Education[] = [
   {
     id: "2",
     institution: "SENA Agroindustrial",
-    title: "Tecnólogo en Sistemas de Gestión Integrada (Calidad, Medio Ambiente, SST)",
+    title: "Tecnólogo en Sistemas de Gestión Integrada",
     period: "2015 – 2018",
     location: "Armenia"
   }
 ];
 
+export const languages: Language[] = [
+  { name: "Español", level: "Nativo" },
+  { name: "Inglés", level: "A2 (en desarrollo activo)" }
+];
+
 export const certifications: Certification[] = [
-  {
-    id: "1",
-    name: "Práctico Frontend Developer",
-    issuer: "Platzi",
-    year: "2026",
-    month: "Febrero",
-    status: "completed"
-  },
-  {
-    id: "2",
-    name: "Backend con Node.js API Rest con Express.js",
-    issuer: "Platzi",
-    year: "2026",
-    month: "Enero",
-    status: "completed"
-  },
-  {
-    id: "3",
-    name: "TypeScript",
-    issuer: "Platzi",
-    year: "2026",
-    month: "Enero",
-    status: "completed"
-  },
-  {
-    id: "4",
-    name: "Curso de PostgreSQL",
-    issuer: "Platzi",
-    year: "2026",
-    month: "Enero",
-    status: "completed"
-  },
-  {
-    id: "5",
-    name: "Supabase",
-    issuer: "Platzi",
-    year: "2026",
-    month: "Enero",
-    status: "completed"
-  },
-  {
-    id: "6",
-    name: "Cursor AI Code Editor",
-    issuer: "Platzi",
-    year: "2025",
-    month: "Octubre",
-    status: "completed"
-  },
-  {
-    id: "7",
-    name: "Next.js Avanzado",
-    issuer: "Platzi",
-    year: "2025",
-    month: "Julio",
-    status: "completed"
-  },
-  {
-    id: "8",
-    name: "React.js E-commerce Profesional",
-    issuer: "Platzi",
-    year: "2025",
-    month: "Julio",
-    status: "completed"
-  },
-  {
-    id: "9",
-    name: "React.js con TypeScript",
-    issuer: "Platzi",
-    year: "2025",
-    month: "Julio",
-    status: "completed"
-  },
-  {
-    id: "10",
-    name: "TailwindCSS",
-    issuer: "Platzi",
-    year: "2025",
-    month: "Julio",
-    status: "completed"
-  },
-  {
-    id: "11",
-    name: "Reactjs Avanzado",
-    issuer: "Platzi",
-    year: "2025",
-    month: "Junio",
-    status: "completed"
-  },
-  {
-    id: "12",
-    name: "Docker: Fundamentos",
-    issuer: "Platzi",
-    year: "2025",
-    month: "Junio",
-    status: "completed"
-  },
-  {
-    id: "13",
-    name: "Pensamiento Lógico",
-    issuer: "Platzi",
-    year: "2025",
-    month: "Junio",
-    status: "completed"
-  },
-  {
-    id: "14",
-    name: "N8N",
-    issuer: "Platzi",
-    year: "2025",
-    month: "Junio",
-    status: "completed"
-  },
-  {
-    id: "15",
-    name: "React.js",
-    issuer: "Platzi",
-    year: "2025",
-    month: "Mayo",
-    status: "completed"
-  },
-  {
-    id: "16",
-    name: "Elements of Agile in Miro",
-    issuer: "Miro",
-    year: "2025",
-    month: "Mayo",
-    status: "completed"
-  },
-  {
-    id: "17",
-    name: "Technical Diagramming",
-    issuer: "Miro",
-    year: "2025",
-    month: "Mayo",
-    status: "completed"
-  },
-  {
-    id: "18",
-    name: "Miro Essentials",
-    issuer: "Miro",
-    year: "2025",
-    month: "Mayo",
-    status: "completed"
-  },
-  {
-    id: "19",
-    name: "Miro Users Support",
-    issuer: "Miro",
-    year: "2025",
-    month: "Mayo",
-    status: "completed"
-  },
-  {
-    id: "20",
-    name: "Innovation Essentials",
-    issuer: "Miro",
-    year: "2025",
-    month: "Mayo",
-    status: "completed"
-  },
-  {
-    id: "21",
-    name: "Curso Básico RPA",
-    issuer: "PIX Robotics",
-    year: "2024",
-    month: "Noviembre",
-    status: "completed"
-  },
-  {
-    id: "22",
-    name: "Databases Fundamentals",
-    issuer: "SoftServe",
-    year: "2024",
-    month: "Mayo",
-    status: "completed"
-  },
-  {
-    id: "23",
-    name: "JavaScript Essentials 2",
-    issuer: "Cisco",
-    year: "2024",
-    month: "Abril",
-    status: "completed"
-  },
-  {
-    id: "24",
-    name: "PostgreSQL",
-    issuer: "Cisco",
-    year: "2024",
-    month: "Mayo",
-    status: "completed"
-  },
-  {
-    id: "25",
-    name: "JavaScript Essentials 1",
-    issuer: "Cisco",
-    year: "2023",
-    month: "Diciembre",
-    status: "completed"
-  },
-  {
-    id: "26",
-    name: "Scrum Fundamentals",
-    issuer: "ScrumStudy",
-    year: "2023",
-    month: "Septiembre",
-    status: "completed"
-  },
-  {
-    id: "27",
-    name: "Next.js 14",
-    issuer: "Platzi",
-    year: "2025",
-    status: "in_progress"
-  },
-  {
-    id: "28",
-    name: "Windsurf AI",
-    issuer: "Cascade",
-    year: "2026",
-    month: "Febrero",
-    status: "completed"
-  }
+  { id: "1", name: "Práctico Frontend Developer", issuer: "Platzi", year: "2026", month: "Febrero", category: "Frontend", status: "completed" },
+  { id: "2", name: "Backend con Node.js - API Rest con Express.js", issuer: "Platzi", year: "2026", month: "Enero", category: "Backend", status: "completed" },
+  { id: "3", name: "TypeScript", issuer: "Platzi", year: "2026", month: "Enero", category: "Frontend", status: "completed" },
+  { id: "4", name: "Curso de PostgreSQL", issuer: "Platzi", year: "2026", month: "Enero", category: "Bases de Datos", status: "completed" },
+  { id: "5", name: "Supabase", issuer: "Platzi", year: "2026", month: "Enero", category: "Backend", status: "completed" },
+  { id: "6", name: "Windsurf AI", issuer: "Cascade", year: "2026", month: "Febrero", category: "Herramientas", status: "completed" },
+  { id: "7", name: "Cursor AI Code Editor", issuer: "Platzi", year: "2025", month: "Octubre", category: "Herramientas", status: "completed" },
+  { id: "8", name: "Next.js Avanzado", issuer: "Platzi", year: "2025", month: "Julio", category: "Frontend", status: "completed" },
+  { id: "9", name: "React.js E-commerce Profesional", issuer: "Platzi", year: "2025", month: "Julio", category: "Frontend", status: "completed" },
+  { id: "10", name: "React.js con TypeScript", issuer: "Platzi", year: "2025", month: "Julio", category: "Frontend", status: "completed" },
+  { id: "11", name: "TailwindCSS", issuer: "Platzi", year: "2025", month: "Julio", category: "Frontend", status: "completed" },
+  { id: "12", name: "React.js Avanzado", issuer: "Platzi", year: "2025", month: "Junio", category: "Frontend", status: "completed" },
+  { id: "13", name: "Docker: Fundamentos", issuer: "Platzi", year: "2025", month: "Junio", category: "Herramientas", status: "completed" },
+  { id: "14", name: "Pensamiento Lógico", issuer: "Platzi", year: "2025", month: "Junio", category: "Metodologías", status: "completed" },
+  { id: "15", name: "N8N", issuer: "Platzi", year: "2025", month: "Junio", category: "Herramientas", status: "completed" },
+  { id: "16", name: "React.js", issuer: "Platzi", year: "2025", month: "Mayo", category: "Frontend", status: "completed" },
+  { id: "17", name: "Elements of Agile in Miro", issuer: "Miro", year: "2025", month: "Mayo", category: "Metodologías", status: "completed" },
+  { id: "18", name: "Technical Diagramming", issuer: "Miro", year: "2025", month: "Mayo", category: "Metodologías", status: "completed" },
+  { id: "19", name: "Miro Essentials", issuer: "Miro", year: "2025", month: "Mayo", category: "Metodologías", status: "completed" },
+  { id: "20", name: "Miro Users Support", issuer: "Miro", year: "2025", month: "Mayo", category: "Metodologías", status: "completed" },
+  { id: "21", name: "Innovation Essentials", issuer: "Miro", year: "2025", month: "Mayo", category: "Metodologías", status: "completed" },
+  { id: "22", name: "Curso Básico RPA", issuer: "PIX Robotics", year: "2024", month: "Noviembre", category: "Herramientas", status: "completed" },
+  { id: "23", name: "Databases Fundamentals", issuer: "SoftServe", year: "2024", month: "Mayo", category: "Bases de Datos", status: "completed" },
+  { id: "24", name: "JavaScript Essentials 2", issuer: "Cisco", year: "2024", month: "Abril", category: "Frontend", status: "completed" },
+  { id: "25", name: "PostgreSQL", issuer: "Cisco", year: "2024", month: "Mayo", category: "Bases de Datos", status: "completed" },
+  { id: "26", name: "JavaScript Essentials 1", issuer: "Cisco", year: "2023", month: "Diciembre", category: "Frontend", status: "completed" },
+  { id: "27", name: "Scrum Fundamentals", issuer: "ScrumStudy", year: "2023", month: "Septiembre", category: "Metodologías", status: "completed" },
+  { id: "28", name: "Next.js 14", issuer: "Platzi", year: "2025", category: "Frontend", status: "in_progress" },
 ];
 
 export const socialLinks: SocialLink[] = [
@@ -384,9 +213,9 @@ export const socialLinks: SocialLink[] = [
     url: "https://www.linkedin.com/in/jhoam-sebastian-muñoz-betancourt",
     icon: "linkedin"
   },
-  // {
-  //   name: "Email",
-  //   url: "mailto:jhoamsebastian68@gmail.com",
-  //   icon: "envelope"
-  // }
+  {
+    name: "Email",
+    url: "mailto:jhoamsebastian68@gmail.com",
+    icon: "envelope"
+  }
 ];
