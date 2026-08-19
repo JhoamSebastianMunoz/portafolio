@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { personalInfo, stats, techStack } from '@/lib/portfolio-data';
 import ScrollReveal from './ScrollReveal';
 
@@ -45,6 +46,17 @@ export default function AboutSection() {
             </div>
 
             <div className="lg:col-span-2">
+              <ScrollReveal delay={0.1}>
+                <Image
+                  src="/images/profile/photo_jhoam_munoz.jpg"
+                  alt={`Foto profesional de ${personalInfo.name}`}
+                  width={1024}
+                  height={1024}
+                  className="w-full h-auto rounded-2xl border border-gray-100 shadow-sm object-cover mb-8"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
+              </ScrollReveal>
+
               <div className="grid grid-cols-2 gap-4">
                 {stats.map((stat, i) => (
                   <ScrollReveal key={stat.label} delay={0.1 + i * 0.1}>

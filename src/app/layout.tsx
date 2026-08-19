@@ -20,11 +20,22 @@ export const metadata: Metadata = {
     title: "Jhoam Sebastián Muñoz Betancourt - Full Stack Developer",
     description: "Portafolio profesional de Jhoam Sebastián Muñoz Betancourt, Full Stack Developer especializado en React, TypeScript, Next.js y arquitecturas cloud.",
     siteName: "Portafolio - Jhoam Sebastián",
+    images: [
+      {
+        url: "https://jhoamsebastianmunoz.vercel.app/images/profile/photo_jhoam_munoz.jpg",
+        width: 1024,
+        height: 1024,
+        alt: "Foto profesional de Jhoam Sebastián Muñoz Betancourt",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Jhoam Sebastián Muñoz Betancourt - Full Stack Developer",
     description: "Portafolio profesional de Jhoam Sebastián Muñoz Betancourt, Full Stack Developer especializado en React, TypeScript, Next.js y arquitecturas cloud.",
+    images: [
+      "https://jhoamsebastianmunoz.vercel.app/images/profile/photo_jhoam_munoz.jpg",
+    ],
   },
   robots: {
     index: true,
