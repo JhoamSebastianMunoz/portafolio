@@ -1,20 +1,24 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
+import {
   Bars3Icon,
   XMarkIcon,
   HomeIcon,
   UserIcon,
   BriefcaseIcon,
   AcademicCapIcon,
-  EnvelopeIcon
+  EnvelopeIcon,
 } from '@heroicons/react/24/outline';
+import { iconHover, iconTap, navLinkHover } from '@/lib/motion';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const progressWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,16 +48,23 @@ const Navigation = () => {
 
   return (
     <>
+      {/* Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 h-0.5 z-50 bg-gradient-to-r from-accent-500 to-accent-300 origin-left"
+        style={{ width: progressWidth }}
+        aria-hidden="true"
+      />
+
       {/* Desktop Navigation */}
       <motion.nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled 
-            ? 'bg-white shadow-sm' 
+          scrolled
+            ? 'bg-ink-950/70 backdrop-blur-xl border-b border-white/5'
             : 'bg-transparent'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between h-16">
@@ -61,8 +72,9 @@ const Navigation = () => {
             <motion.a
               href="#home"
               onClick={() => handleNavClick('#home')}
-              className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600"
-              whileHover={{ scale: 1.05 }}
+              className="text-2xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent-500 to-accent-300"
+              whileHover={{ ...navLinkHover, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               JSM
             </motion.a>
@@ -74,13 +86,13 @@ const Navigation = () => {
                   key={item.name}
                   href={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-lg font-medium transition-all duration-300 ${
+                  className={`flex items-center gap-2 px-3 py-2 rounded-lg font-mono text-xs font-medium uppercase tracking-wider transition-all duration-300 ${
                     scrolled
-                      ? 'text-gray-700 hover:text-purple-600 hover:bg-purple-50'
-                      : 'text-white hover:text-purple-200 hover:bg-white/10'
+                      ? 'text-slate-300 hover:text-accent-300'
+                      : 'text-white hover:text-accent-200'
                   }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={navLinkHover}
+                  whileTap={iconTap}
                 >
                   <item.icon className="w-4 h-4" />
                   {item.name}
@@ -93,11 +105,11 @@ const Navigation = () => {
               onClick={() => setIsOpen(!isOpen)}
               className={`md:hidden p-2 rounded-lg transition-all duration-300 ${
                 scrolled
-                  ? 'text-gray-700 hover:bg-gray-100'
-                  : 'text-white hover:bg-white/10'
+                  ? 'text-slate-300 hover:bg-white/5'
+                  : 'text-white hover:bg-white/5'
               }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={iconHover}
+              whileTap={iconTap}
             >
               {isOpen ? (
                 <XMarkIcon className="w-6 h-6" />
@@ -120,7 +132,7 @@ const Navigation = () => {
           >
             {/* Backdrop */}
             <motion.div
-              className="absolute inset-0 bg-black/50"
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -129,7 +141,7 @@ const Navigation = () => {
 
             {/* Menu Panel */}
             <motion.div
-              className="absolute right-0 top-0 h-full w-64 bg-white shadow-xl"
+              className="absolute right-0 top-0 h-full w-64 bg-ink-900/95 backdrop-blur-xl border-l border-white/5 shadow-2xl"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -140,11 +152,11 @@ const Navigation = () => {
                 <div className="flex justify-end mb-8">
                   <motion.button
                     onClick={() => setIsOpen(false)}
-                    className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                    className="p-2 rounded-lg hover:bg-white/5 transition-colors"
+                    whileHover={iconHover}
+                    whileTap={iconTap}
                   >
-                    <XMarkIcon className="w-6 h-6 text-gray-700" />
+                    <XMarkIcon className="w-6 h-6 text-slate-300" />
                   </motion.button>
                 </div>
 
@@ -155,12 +167,12 @@ const Navigation = () => {
                       key={item.name}
                       href={item.href}
                       onClick={() => handleNavClick(item.href)}
-                      className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-all duration-300"
-                      whileHover={{ scale: 1.02, x: 5 }}
-                      whileTap={{ scale: 0.98 }}
+                      className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:text-accent-300 hover:bg-white/5 transition-all duration-300"
+                      whileHover={{ x: 4 }}
+                      whileTap={iconTap}
                     >
                       <item.icon className="w-5 h-5" />
-                      <span className="font-medium">{item.name}</span>
+                      <span className="font-mono text-sm font-medium uppercase tracking-wider">{item.name}</span>
                     </motion.a>
                   ))}
                 </div>

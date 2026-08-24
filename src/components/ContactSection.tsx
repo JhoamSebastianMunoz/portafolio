@@ -6,6 +6,7 @@ import { personalInfo, socialLinks } from '@/lib/portfolio-data';
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from '@heroicons/react/24/outline';
 import SectionHeading from './SectionHeading';
 import ScrollReveal from './ScrollReveal';
+import { hoverLift, iconHover, iconTap, tapScale } from '@/lib/motion';
 
 export default function ContactSection() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
@@ -15,7 +16,6 @@ export default function ContactSection() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setSending(true);
-    // Fallback: mailto with form data encoded
     const subject = encodeURIComponent(`Contacto Portafolio - ${formState.name}`);
     const body = encodeURIComponent(
       `Nombre: ${formState.name}\nEmail: ${formState.email}\n\nMensaje:\n${formState.message}`
@@ -27,8 +27,8 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-white relative overflow-hidden scroll-mt-16">
-      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-purple-50 to-transparent rounded-tr-full" />
+    <section id="contact" className="py-24 bg-ink-950 relative overflow-hidden scroll-mt-16 border-y border-white/5">
+      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-accent-500/5 to-transparent rounded-tr-full" />
       <div className="container mx-auto px-6 relative">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
@@ -39,9 +39,9 @@ export default function ContactSection() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             <ScrollReveal className="lg:col-span-2 space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Conectemos</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Si tienes un proyecto en mente, una oportunidad laboral, o simplemente quieres 
+                <h3 className="text-2xl font-display font-bold text-white mb-4">Conectemos</h3>
+                <p className="text-slate-300 leading-relaxed">
+                  Si tienes un proyecto en mente, una oportunidad laboral, o simplemente quieres
                   conectar, estaré encantado de escucharte. Respondo rápido.
                 </p>
               </div>
@@ -52,26 +52,26 @@ export default function ContactSection() {
                   { icon: PhoneIcon, label: 'Teléfono', value: personalInfo.phone, href: `tel:${personalInfo.phone}` },
                   { icon: MapPinIcon, label: 'Ubicación', value: personalInfo.location },
                 ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-4">
-                    <div className="w-11 h-11 bg-gradient-to-br from-purple-600 to-blue-600 rounded-xl flex items-center justify-center text-white shrink-0">
+                  <motion.div key={item.label} className="flex items-center gap-4" whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
+                    <div className="w-11 h-11 bg-gradient-to-br from-accent-500 to-accent-300 rounded-xl flex items-center justify-center text-white shrink-0">
                       <item.icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">{item.label}</p>
+                      <p className="font-mono text-xs uppercase tracking-wider text-slate-400">{item.label}</p>
                       {item.href ? (
-                        <a href={item.href} className="font-medium text-gray-900 hover:text-purple-600 transition-colors">
+                        <a href={item.href} className="font-medium text-white hover:text-accent-300 transition-colors">
                           {item.value}
                         </a>
                       ) : (
-                        <p className="font-medium text-gray-900">{item.value}</p>
+                        <p className="font-medium text-white">{item.value}</p>
                       )}
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
               <div>
-                <h4 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wider">Redes</h4>
+                <h4 className="font-mono text-xs uppercase tracking-wider text-slate-400 font-semibold mb-3">Redes</h4>
                 <div className="flex gap-3">
                   {socialLinks.map((link) => (
                     <motion.a
@@ -79,9 +79,9 @@ export default function ContactSection() {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center text-gray-600 hover:bg-purple-100 hover:text-purple-600 transition-all duration-300"
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
+                      className="w-10 h-10 glass-panel border border-white/5 rounded-xl flex items-center justify-center text-slate-300 hover:bg-accent-500/10 hover:text-accent-300 hover:border-accent-500/30 transition-all duration-300"
+                      whileHover={iconHover}
+                      whileTap={iconTap}
                     >
                       {link.icon === 'github' && (
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -103,11 +103,11 @@ export default function ContactSection() {
             </ScrollReveal>
 
             <ScrollReveal className="lg:col-span-3" delay={0.15}>
-              <form onSubmit={handleSubmit} className="bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-100">
-                <h4 className="text-lg font-bold text-gray-900 mb-6">Envíame un mensaje</h4>
+              <form onSubmit={handleSubmit} className="glass-panel rounded-2xl p-6 md:p-8 border border-white/5">
+                <h4 className="font-display font-bold text-white mb-6">Envíame un mensaje</h4>
                 <div className="space-y-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">
+                    <label htmlFor="name" className="block font-mono text-xs uppercase tracking-wider text-slate-400 mb-1.5">
                       Nombre
                     </label>
                     <input
@@ -116,12 +116,12 @@ export default function ContactSection() {
                       required
                       value={formState.name}
                       onChange={(e) => setFormState(prev => ({ ...prev, name: e.target.value }))}
-                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 transition-all duration-200"
+                      className="w-full px-4 py-3 bg-ink-800/50 border border-white/5 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent-500/20 focus:border-accent-500 transition-all duration-200 focus-ring"
                       placeholder="Tu nombre"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
+                    <label htmlFor="email" className="block font-mono text-xs uppercase tracking-wider text-slate-400 mb-1.5">
                       Email
                     </label>
                     <input
@@ -130,12 +130,12 @@ export default function ContactSection() {
                       required
                       value={formState.email}
                       onChange={(e) => setFormState(prev => ({ ...prev, email: e.target.value }))}
-                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 transition-all duration-200"
+                      className="w-full px-4 py-3 bg-ink-800/50 border border-white/5 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent-500/20 focus:border-accent-500 transition-all duration-200 focus-ring"
                       placeholder="tu@email.com"
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">
+                    <label htmlFor="message" className="block font-mono text-xs uppercase tracking-wider text-slate-400 mb-1.5">
                       Mensaje
                     </label>
                     <textarea
@@ -144,16 +144,16 @@ export default function ContactSection() {
                       rows={4}
                       value={formState.message}
                       onChange={(e) => setFormState(prev => ({ ...prev, message: e.target.value }))}
-                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 transition-all duration-200 resize-none"
+                      className="w-full px-4 py-3 bg-ink-800/50 border border-white/5 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent-500/20 focus:border-accent-500 transition-all duration-200 resize-none focus-ring"
                       placeholder="Cuéntame sobre tu proyecto o propuesta..."
                     />
                   </div>
                   <motion.button
                     type="submit"
                     disabled={sending}
-                    className="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 disabled:opacity-60 shadow-lg shadow-purple-500/20"
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
+                    className="w-full px-6 py-3 bg-gradient-to-r from-accent-500 to-accent-300 text-white rounded-xl font-semibold text-gradient bg-[length:200%_auto] animate-gradient-x hover:shadow-lg hover:shadow-accent-500/25 transition-all duration-300 disabled:opacity-60 focus-ring"
+                    whileHover={hoverLift}
+                    whileTap={tapScale}
                   >
                     {sending ? 'Enviando...' : sent ? '¡Mensaje listo!' : 'Enviar mensaje'}
                   </motion.button>
@@ -161,7 +161,7 @@ export default function ContactSection() {
                     <motion.p
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="text-sm text-emerald-600 text-center font-medium"
+                      className="text-sm text-emerald-400 text-center font-medium font-mono"
                     >
                       Se abrirá tu cliente de correo para completar el envío
                     </motion.p>

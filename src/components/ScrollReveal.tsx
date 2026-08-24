@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
+import { scrollReveal } from '@/lib/motion';
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -10,13 +11,15 @@ interface ScrollRevealProps {
 }
 
 export default function ScrollReveal({ children, className, delay = 0 }: ScrollRevealProps) {
+  const variants = scrollReveal(delay);
+
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
+      initial={variants.initial}
+      whileInView={variants.whileInView}
+      viewport={variants.viewport}
+      transition={variants.transition}
     >
       {children}
     </motion.div>

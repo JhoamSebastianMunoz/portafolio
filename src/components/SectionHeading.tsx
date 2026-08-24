@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { fadeUpBlur } from '@/lib/motion';
 
 interface SectionHeadingProps {
   label: string;
@@ -12,22 +13,29 @@ export default function SectionHeading({ label, highlight, subtitle }: SectionHe
   return (
     <motion.div
       className="text-center mb-16"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      initial={fadeUpBlur.hidden}
+      whileInView={fadeUpBlur.visible}
+      viewport={fadeUpBlur.viewport}
+      transition={fadeUpBlur.transition}
     >
-      <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-        {label}{' '}
-        {highlight && (
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600">
-            {highlight}
-          </span>
+      <div className="font-mono text-xs uppercase tracking-widest text-accent-400/60 mb-2">
+        {'// ' + label.toUpperCase().replace(/\s+/g, '_')}
+      </div>
+      <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4 tracking-tight">
+        {highlight ? (
+          <>
+            {label.replace(highlight, '')}{' '}
+            <span className="text-gradient bg-[length:200%_auto] animate-gradient-x">
+              {highlight}
+            </span>
+          </>
+        ) : (
+          label
         )}
       </h2>
-      <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full" />
+      <div className="w-20 h-1 bg-gradient-to-r from-accent-500 to-accent-300 mx-auto rounded-full" />
       {subtitle && (
-        <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
+        <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto font-mono text-sm">
           {subtitle}
         </p>
       )}

@@ -3,12 +3,13 @@
 import { motion } from 'framer-motion';
 import { personalInfo, socialLinks } from '@/lib/portfolio-data';
 import { CodeBracketIcon } from '@heroicons/react/24/outline';
+import { iconHover, iconTap } from '@/lib/motion';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white py-16">
+    <footer className="bg-ink-950 text-white py-16 border-t border-white/5">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
@@ -19,12 +20,12 @@ export default function Footer() {
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-xl flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-br from-accent-500 to-accent-300 rounded-xl flex items-center justify-center">
                   <CodeBracketIcon className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-xl font-bold">Jhoam Sebastián</span>
+                <span className="text-xl font-display font-bold">Jhoam Sebastián</span>
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed mb-4">
+              <p className="text-slate-400 text-sm leading-relaxed mb-4">
                 Full Stack Developer construyendo experiencias web modernas con React, TypeScript y Node.js.
               </p>
               <div className="flex gap-3">
@@ -34,9 +35,9 @@ export default function Footer() {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 hover:bg-purple-600 hover:text-white transition-all duration-300"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
+                    className="w-9 h-9 bg-ink-800 rounded-xl flex items-center justify-center text-slate-400 hover:bg-accent-500/20 hover:text-accent-300 transition-all duration-300 border border-white/5"
+                    whileHover={iconHover}
+                    whileTap={iconTap}
                   >
                     {link.icon === 'github' && (
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -59,7 +60,7 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h4 className="font-semibold mb-4">Navegación</h4>
+              <h4 className="font-display font-semibold mb-4 text-accent-300">Navegación</h4>
               <ul className="space-y-2.5">
                 {[
                   { name: 'Sobre Mí', href: '#about' },
@@ -69,7 +70,7 @@ export default function Footer() {
                   { name: 'Contacto', href: '#contact' },
                 ].map((item) => (
                   <li key={item.name}>
-                    <a href={item.href} className="text-gray-400 hover:text-purple-400 transition-colors text-sm">
+                    <a href={item.href} className="text-slate-400 hover:text-accent-300 transition-colors text-sm font-mono uppercase tracking-wider text-xs">
                       {item.name}
                     </a>
                   </li>
@@ -83,8 +84,8 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h4 className="font-semibold mb-4">Contacto</h4>
-              <div className="space-y-2.5 text-sm text-gray-400">
+              <h4 className="font-display font-semibold mb-4 text-accent-300">Contacto</h4>
+              <div className="space-y-2.5 text-sm text-slate-400 font-mono">
                 <p>{personalInfo.email}</p>
                 <p>{personalInfo.phone}</p>
                 <p>{personalInfo.location}</p>
@@ -93,13 +94,13 @@ export default function Footer() {
           </div>
 
           <motion.div
-            className="border-t border-gray-800 pt-8 text-center"
+            className="border-t border-white/5 pt-8 text-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <p className="text-gray-500 text-sm">
+            <p className="text-slate-500 text-sm font-mono">
               &copy; {currentYear} Jhoam Sebastián Muñoz Betancourt. Todos los derechos reservados.
             </p>
           </motion.div>

@@ -3,37 +3,61 @@
 import { motion } from 'framer-motion';
 import { personalInfo, socialLinks, techStack } from '@/lib/portfolio-data';
 import { EnvelopeIcon, PhoneIcon, MapPinIcon, ArrowDownIcon } from '@heroicons/react/24/outline';
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.2 }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const } }
-};
+import { containerVariants, itemVariants, arrowDown, auroraDrift, hoverLift, iconHover, iconTap, tapScale } from '@/lib/motion';
 
 function TechBadge({ name }: { name: string }) {
   return (
-    <span className="inline-flex items-center px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full text-sm font-medium text-purple-200 whitespace-nowrap">
+    <motion.span
+      className="inline-flex items-center px-3 py-1.5 glass-panel text-sm font-medium text-accent-200 whitespace-nowrap border border-white/5"
+      whileHover={{ ...hoverLift, borderColor: 'rgba(139, 92, 246, 0.5)', boxShadow: '0 0 16px -2px rgba(139, 92, 246, 0.3)' }}
+      whileTap={tapScale}
+      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+    >
       {name}
-    </span>
+    </motion.span>
   );
 }
 
 export default function HeroSection() {
   return (
-    <section className=" pt-7 relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent" />
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-ink-950">
+      {/* Grid Background */}
+      <div className="grid-bg" aria-hidden="true" />
+
+      {/* Aurora Blobs */}
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl"
+          animate={auroraDrift.animate}
+          transition={auroraDrift.transition}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-300/10 rounded-full blur-3xl"
+          animate={{
+            transform: [
+              'translate(0, 0) rotate(0deg)',
+              'translate(-2%, 1%) rotate(-2deg)',
+              'translate(1%, -2%) rotate(1deg)',
+              'translate(-1%, -1%) rotate(-1deg)',
+              'translate(0, 0) rotate(0deg)',
+            ],
+          }}
+          transition={{ duration: 35, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-br from-accent-500/5 to-accent-300/5 rounded-full blur-3xl"
+          animate={{
+            transform: [
+              'translate(-50%, -50%) scale(1) rotate(0deg)',
+              'translate(-48%, -52%) scale(1.05) rotate(1deg)',
+              'translate(-52%, -48%) scale(0.95) rotate(-1deg)',
+              'translate(-50%, -50%) scale(1) rotate(0deg)',
+            ],
+          }}
+          transition={{ duration: 40, repeat: Infinity, ease: 'easeInOut' }}
+        />
       </div>
+
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           className="text-center max-w-5xl mx-auto"
@@ -41,35 +65,45 @@ export default function HeroSection() {
           initial="hidden"
           animate="visible"
         >
+          {/* Eyebrow */}
+          <motion.p
+            variants={itemVariants}
+            className="font-mono text-xs uppercase tracking-widest text-accent-400/80 mb-4"
+          >
+            {'// FULL STACK DEVELOPER'}
+          </motion.p>
 
+          {/* Name with animated gradient */}
           <motion.h1
             variants={itemVariants}
-            className="pt-2 text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
+            className="pt-2 text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight mb-6"
           >
-            <span className="text-white">{personalInfo.name}</span>
+            <span className="text-gradient bg-[length:200%_auto] animate-gradient-x">
+              {personalInfo.name}
+            </span>
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-purple-200/80 max-w-2xl mx-auto mb-8 leading-relaxed"
+            className="text-lg md:text-xl text-accent-400/60 max-w-2xl mx-auto mb-8 leading-relaxed font-mono text-sm"
           >
             React · TypeScript · Node.js · Power BI
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-10 text-sm text-gray-400"
+            className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-10 text-sm text-slate-400"
           >
             <span className="flex items-center gap-2">
-              <MapPinIcon className="w-4 h-4 text-purple-400" />
+              <MapPinIcon className="w-4 h-4 text-accent-400" />
               {personalInfo.location}
             </span>
-            <a href={`tel:${personalInfo.phone}`} className="flex items-center gap-2 hover:text-purple-300 transition-colors">
-              <PhoneIcon className="w-4 h-4 text-purple-400" />
+            <a href={`tel:${personalInfo.phone}`} className="flex items-center gap-2 hover:text-accent-300 transition-colors font-mono">
+              <PhoneIcon className="w-4 h-4 text-accent-400" />
               {personalInfo.phone}
             </a>
-            <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-2 hover:text-purple-300 transition-colors">
-              <EnvelopeIcon className="w-4 h-4 text-purple-400" />
+            <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-2 hover:text-accent-300 transition-colors font-mono">
+              <EnvelopeIcon className="w-4 h-4 text-accent-400" />
               {personalInfo.email}
             </a>
           </motion.div>
@@ -80,17 +114,17 @@ export default function HeroSection() {
           >
             <motion.a
               href="#projects"
-              className="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:from-purple-500 hover:to-blue-500 transition-all duration-300 shadow-lg shadow-purple-500/25"
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
+              className="px-8 py-3 bg-gradient-to-r from-accent-500 to-accent-300 text-white rounded-full font-semibold text-gradient bg-[length:200%_auto] animate-gradient-x shadow-lg shadow-accent-500/25"
+              whileHover={{ ...hoverLift, boxShadow: '0 0 32px -4px rgba(139, 92, 246, 0.4), 0 12px 40px -12px rgba(0, 0, 0, 0.5)' }}
+              whileTap={tapScale}
             >
               Ver Proyectos
             </motion.a>
             <motion.a
               href="#contact"
-              className="px-8 py-3 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-full font-semibold hover:bg-white/10 transition-all duration-300"
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
+              className="px-8 py-3 glass-panel border border-white/5 text-white rounded-full font-semibold hover:border-accent-500/50 hover:bg-white/5 transition-all duration-300"
+              whileHover={hoverLift}
+              whileTap={tapScale}
             >
               Contactar
             </motion.a>
@@ -106,9 +140,9 @@ export default function HeroSection() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-white hover:bg-white/10 hover:border-purple-500/30 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
+                className="p-3 glass-panel border border-white/5 rounded-full text-white hover:border-accent-500/30 hover:bg-white/5 transition-all duration-300"
+                whileHover={iconHover}
+                whileTap={iconTap}
               >
                 {link.icon === 'github' && (
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -131,12 +165,12 @@ export default function HeroSection() {
             variants={itemVariants}
             className="max-w-3xl mx-auto"
           >
-            <p className="text-xs uppercase tracking-widest text-gray-500 mb-4">Tecnologías</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-slate-500 mb-4">Tecnologías</p>
             <div className="flex flex-wrap justify-center gap-2">
               {techStack.slice(0, 8).map((tech) => (
                 <TechBadge key={tech} name={tech} />
               ))}
-              <span className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-purple-400/60">
+              <span className="inline-flex items-center px-3 py-1.5 text-sm font-mono font-medium text-slate-500">
                 +{techStack.length - 8} más
               </span>
             </div>
@@ -144,10 +178,10 @@ export default function HeroSection() {
 
           <motion.div
             className="mt-16"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            animate={arrowDown.animate}
+            transition={arrowDown.transition}
           >
-            <ArrowDownIcon className="w-6 h-6 text-gray-500 mx-auto" />
+            <ArrowDownIcon className="w-6 h-6 text-slate-500 mx-auto" />
           </motion.div>
         </motion.div>
       </div>

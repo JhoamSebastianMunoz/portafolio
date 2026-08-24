@@ -39,3 +39,22 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# agents / AI tooling (infraestructura de skills del asistente)
+.agents*
+.AGENTS.md
+
+# AI / code assistants
+.opencode/
+.claude/
+.cursor/
+.cursorrules
+.windsurf/
+.continue/
+.aider*
+.aider.log
+
+# editors
+.vscode/
+.idea/
+*.code-workspace

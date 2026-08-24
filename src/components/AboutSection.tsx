@@ -4,28 +4,29 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { personalInfo, stats, techStack } from '@/lib/portfolio-data';
 import ScrollReveal from './ScrollReveal';
+import { hoverLift, tapScale } from '@/lib/motion';
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 bg-white relative overflow-hidden scroll-mt-16">
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-purple-50 to-transparent rounded-bl-full" />
+    <section id="about" className="py-24 bg-ink-950 relative overflow-hidden scroll-mt-16 border-y border-white/5">
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-accent-500/5 to-transparent rounded-bl-full" />
       <div className="container mx-auto px-6 relative">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4 tracking-tight">
               Sobre{' '}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600">
+              <span className="text-gradient bg-[length:200%_auto] animate-gradient-x">
                 Mí
               </span>
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full" />
+            <div className="w-20 h-1 bg-gradient-to-r from-accent-500 to-accent-300 mx-auto rounded-full" />
           </ScrollReveal>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
             <div className="lg:col-span-3">
               <ScrollReveal delay={0.1}>
-                <div className="bg-gray-50 rounded-2xl p-8 md:p-10 border border-gray-100">
-                  <p className="text-lg text-gray-700 leading-relaxed">
+                <div className="glass-panel rounded-2xl p-8 md:p-10">
+                  <p className="text-lg text-slate-300 leading-relaxed">
                     {personalInfo.profile}
                   </p>
                 </div>
@@ -34,12 +35,15 @@ export default function AboutSection() {
               <ScrollReveal delay={0.2} className="mt-8">
                 <div className="flex flex-wrap gap-2">
                   {techStack.map((tech) => (
-                    <span
+                    <motion.span
                       key={tech}
-                      className="inline-flex items-center px-3 py-1.5 bg-purple-50 text-purple-700 rounded-lg text-sm font-medium border border-purple-100"
+                      className="inline-flex items-center px-3 py-1.5 glass-panel text-slate-300 rounded-lg text-sm font-medium border border-white/5"
+                      whileHover={{ ...hoverLift, borderColor: 'rgba(139, 92, 246, 0.5)', boxShadow: '0 0 16px -2px rgba(139, 92, 246, 0.2)' }}
+                      whileTap={tapScale}
+                      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                     >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </ScrollReveal>
@@ -52,7 +56,7 @@ export default function AboutSection() {
                   alt={`Foto profesional de ${personalInfo.name}`}
                   width={1024}
                   height={1024}
-                  className="w-full h-auto rounded-2xl border border-gray-100 shadow-sm object-cover mb-8"
+                  className="w-full h-auto rounded-2xl border border-white/5 glass-panel shadow-xl object-cover mb-8"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
               </ScrollReveal>
@@ -61,15 +65,18 @@ export default function AboutSection() {
                 {stats.map((stat, i) => (
                   <ScrollReveal key={stat.label} delay={0.1 + i * 0.1}>
                     <motion.div
-                      className="bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl p-6 text-center text-white"
-                      whileHover={{ scale: 1.03 }}
+                      className="glass-panel rounded-2xl p-6 text-center border border-white/5 relative overflow-hidden"
+                      whileHover={{ ...hoverLift, boxShadow: '0 0 32px -4px rgba(139, 92, 246, 0.3), 0 12px 40px -12px rgba(0, 0, 0, 0.5)' }}
                       transition={{ duration: 0.2 }}
                     >
-                      <div className="text-3xl md:text-4xl font-bold mb-1 tracking-tight">
-                        {stat.value}
-                      </div>
-                      <div className="text-sm text-purple-200 font-medium">
-                        {stat.label}
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent-500/5 to-accent-300/5 opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                      <div className="relative z-10">
+                        <div className="text-3xl md:text-4xl font-display font-bold mb-1 tracking-tight text-white">
+                          {stat.value}
+                        </div>
+                        <div className="font-mono text-xs uppercase tracking-wider text-accent-400 font-medium">
+                          {stat.label}
+                        </div>
                       </div>
                     </motion.div>
                   </ScrollReveal>
