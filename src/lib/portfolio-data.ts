@@ -3,26 +3,27 @@ import { Project, Experience, Education, Certification, SocialLink, Language, St
 export const personalInfo = {
   name: "JHOAM SEBASTIAN MUÑOZ BETANCOURT",
   title: "Full Stack Developer",
-  subtitle: "React · TypeScript · Node.js · Power BI",
+  subtitle: "React · Node.js · TypeScript · SQL · Azure",
   location: "Montenegro, Quindío",
   phone: "+57 311 695 7990",
   email: "jhoamsebastian68@gmail.com",
   github: "https://github.com/JhoamSebastianMunoz",
-  linkedin: "https://www.linkedin.com/in/jhoam-sebastian-muñoz-betancourt",
-  profile: "Desarrollador Full Stack con 2+ años de experiencia diseñando y desplegando aplicaciones web con React, TypeScript y Node.js. He reducido tiempos operativos de gestión de preventas mediante optimización de consultas SQL y arquitecturas REST limpias. Experiencia desplegando en Azure, Vercel y Railway con CI/CD funcional en producción. Complemento el desarrollo con análisis de datos en Power BI para convertir información en decisiones de negocio."
+  linkedin: "https://www.linkedin.com/in/jhoam-sebastian-mu%C3%B1oz-betancourt",
+  profile: "Desarrollador de Software con experiencia construyendo aplicaciones web full-stack con React, Node.js y TypeScript. Experiencia diseñando APIs RESTful, optimizando consultas SQL y desplegando en la nube (Azure, Vercel, Railway) con pipelines CI/CD en producción. Enfoque en código mantenible, separación de capas (Controllers, Services, Repositories) y uso de herramientas de IA para acelerar el ciclo de desarrollo."
 };
 
 export const stats: Stat[] = [
-  { label: "Años de Experiencia", value: "2+" },
+  { label: "Años de Experiencia", value: "3+" },
   { label: "Proyectos en Producción", value: "4" },
-  { label: "Tecnologías Dominadas", value: "15+" },
-  { label: "Certificaciones", value: "12+" },
+  { label: "Tecnologías Dominadas", value: "18+" },
+  { label: "Certificaciones", value: "28+" },
 ];
 
 export const techStack = [
-  "React", "TypeScript", "Next.js", "Node.js", "Express",
-  "TailwindCSS", "PostgreSQL", "MySQL", "Docker", "Azure",
-  "Vercel", "Power BI", "Git", "Supabase", "JWT"
+  "React", "TypeScript", "JavaScript", "TailwindCSS", "Boostrap", "CSS",
+  "Next.js", "Node.js", "Express", "PostgreSQL", "MySQL", "SQLite", 
+  "Docker", "Azure", "Vercel", "Railway", "Power BI", "Git", "GitHub",
+  "Supabase", "JWT","Vite", "i18next", "Chart.js", "lucide-react"
 ];
 
 export const projects: Project[] = [
@@ -30,21 +31,26 @@ export const projects: Project[] = [
     id: "1",
     title: "Tremendo Territorio",
     description: "Plataforma web para visibilizar y comercializar productos agrícolas colombianos, con enfoque en escalabilidad y experiencia de usuario.",
-    technologies: ["React", "Vite", "TailwindCSS", "TypeScript", "Node.js", "Express", "MySQL"],
+    technologies: ["React", "TailwindCSS", "JavaScript", "Node.js", "Express", "MySQL", "Vite 7.0.0", "Vercel", "Railway", "Claudinary", "i18next", "Chart.js", "lucide-react"],
     period: "May 2025 – Ene 2026",
     features: [
       "Arquitectura de componentes reutilizables con React + Vite + TypeScript",
       "Diseño responsive con TailwindCSS optimizado para móviles",
       "Integración de APIs REST con manejo de estados global (Context API)",
-      "Despliegue en Vercel con CI/CD automatizado"
+      "Despliegue en Vercel con CI/CD automatizado",
+      "Internacionalización multi-idioma (Español/Inglés) con i18next",
+      "Autenticación de usuarios con AuthContext",
+      "Dashboard de analytics con gráficos de oferta y demanda"
     ],
     impact: [
-      "Construí 15+ componentes reutilizables, reduciendo tiempo de desarrollo de nuevas vistas",
-      "Implementé arquitectura limpia con Context API, reduciendo llamadas redundantes a APIs",
-      "Colaboré en equipo con GitFlow, manteniendo entregas continuas organizadas"
+      "- Diseñé 30+ componentes reutilizables en React + Vite, reduciendo el tiempo de desarrollo de nuevas vistas mediante un sistema de diseño consistente.",
+      "- Reduje llamadas API redundantes implementando gestión centralizada de estado con Context API. ",
+      "- Desarrollé servicios RESTful y modelos de datos en TypeScript y PostgreSQL, aplicando arquitectura limpia y manejo centralizado de errores con middlewares.",
+      "- Integré almacenamiento remoto de archivos con Cloudinary, agilizando la gestión de contenido multimedia.",
+      "- Mantuve historial de commits organizado colaborando en equipo con GitFlow en GitHub"
     ],
-    liveUrl: "https://frontend-tremendo-territorio.vercel.app/",
-    githubUrl: "https://github.com/JhoamSebastianMunoz/frontend-tremendo-territorio.git",
+    liveUrl: "https://tremendoterritoriofrontend.vercel.app/",
+    githubUrl: "https://github.com/tremendoterritorio/tremendoterritorio-frontend.git",
     technicalNotice: {
       type: "warning",
       title: "Servicios Backend Temporalmente No Disponibles",
@@ -55,7 +61,7 @@ export const projects: Project[] = [
     id: "2",
     title: "TATSOFT",
     description: "Sistema de gestión de preventas B2B para distribuidoras con arquitectura de microservicios y despliegue cloud.",
-    technologies: ["React", "Vite", "CSS3", "Node.js", "Express", "MySQL", "Azure"],
+    technologies: ["React", "Vite", "CSS3", "Node.js", "Express", "Swagger", "MySQL", "Azure"],
     period: "Jul 2023 – Abr 2025",
     features: [
       "Desarrollo de frontend modular con React y Vite",
@@ -65,9 +71,11 @@ export const projects: Project[] = [
       "Despliegue cloud en Azure con alta disponibilidad"
     ],
     impact: [
-      "Reduje el tiempo de ejecución de procesos clave de preventas optimizando consultas SQL",
-      "Desarrollé y mantuve APIs REST para operaciones CRUD integradas con microservicios",
-      "Configuré pipelines de CI/CD en Azure garantizando despliegues continuos sin downtime"
+      "- Reduje el tiempo de respuesta de transacciones críticas optimizando consultas SQL y procedimientos almacenados en MySQL.",
+      "- Diseñé y mantuve APIs RESTful bajo arquitectura de microservicios con Node.js, Express y TypeScript, separando capas en Routes, Midleware, DTOs, Controllers, Services, Repositories y db.",
+      "- Documenté APIs con Swagger/OpenAPI, facilitando la integración continua entre equipos de desarrollo.",
+      "- Configuré pipelines CI/CD en Microsoft Azure (App Service, Azure Database for MySQL), logrando despliegues sin downtime.",
+      "- Aceleré el desarrollo frontend en React usando Cursor AI, manteniendo estándares de código limpio."
     ],
     liveUrl: "frontend-tatsoft.vercel.app/",
     githubUrl: "https://github.com/JhoamSebastianMunoz/frontend_tatsoft.git",
@@ -128,11 +136,14 @@ export const experience: Experience[] = [
     period: "May 2025 – Ene 2026",
     description: "Plataforma web para visibilizar el trabajo de agricultores colombianos, conectando el campo con consumidores a través de tecnología moderna.",
     achievements: [
-      "Construí 15+ componentes reutilizables en React + Vite + TailwindCSS, reduciendo el tiempo de desarrollo de nuevas vistas mediante un sistema de diseño consistente",
+      "Construí 30+ componentes reutilizables en React + Vite + TailwindCSS, reduciendo el tiempo de desarrollo de nuevas vistas mediante un sistema de diseño consistente",
       "Implementé arquitectura limpia con manejo centralizado de estado global (Context API), optimizando el consumo de APIs REST y reduciendo llamadas redundantes",
-      "Colaboré en equipo con GitFlow en GitHub, manteniendo un historial de commits organizado y entregas continuas"
+      "Colaboré en equipo con GitFlow en GitHub, manteniendo un historial de commits organizado y entregas continuas",
+      "Implementé internacionalización multi-idioma (Español/Inglés) con i18next y detección automática de idioma",
+      "Desarrollé sistema de autenticación de usuarios con AuthContext y restricción de acceso a páginas protegidas",
+      "Creé dashboard de analytics con gráficos de oferta y demanda y métricas de conexiones realizadas"
     ],
-    technologies: ["React", "Vite", "TailwindCSS", "TypeScript", "Node.js", "Express", "MySQL", "Vercel", "Railway"]
+    technologies: ["React", "Vite", "TailwindCSS", "TypeScript", "Node.js", "Express", "MySQL", "Vercel", "Railway", "i18next", "AuthContext"]
   },
   {
     id: "2",
