@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, startTransition } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '@/lib/portfolio-data';
-import { Project, TechnicalNotice } from '@/types/portfolio';
+import { Project, ProjectCategory, TechnicalNotice } from '@/types/portfolio';
 import {
   ArrowTopRightOnSquareIcon,
   XMarkIcon,
@@ -38,8 +38,39 @@ function TechnicalNoticeBanner({ notice }: { notice: TechnicalNotice }) {
   );
 }
 
+const categoryFilters: { key: 'all' | ProjectCategory; label: string }[] = [
+  { key: 'all', label: 'Todos' },
+  { key: 'frontend', label: 'Frontend React / Next.js' },
+  { key: 'backend-microservices', label: 'Backend Microservicios' },
+  { key: 'backend-api', label: 'Backend APIs REST' },
+  { key: 'static-educational', label: 'Estáticos / Educativos' },
+];
+
+const categoryCounts = projects.reduce<Record<'all' | ProjectCategory, number>>(
+  (counts, project) => {
+    counts.all += 1;
+    if (project.category) {
+      counts[project.category] += 1;
+    }
+    return counts;
+  },
+  {
+    all: 0,
+    frontend: 0,
+    'backend-microservices': 0,
+    'backend-api': 0,
+    'static-educational': 0,
+  }
+);
+
 export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [activeCategory, setActiveCategory] = useState<'all' | ProjectCategory>('all');
+
+  const filteredProjects =
+    activeCategory === 'all'
+      ? projects
+      : projects.filter((project) => project.category === activeCategory);
 
   return (
     <section id="projects" className="py-24 bg-ink-950 scroll-mt-16 border-y border-white/5">
@@ -48,12 +79,37 @@ export default function ProjectsSection() {
           <SectionHeading
             label="Proyectos de"
             highlight="Alto Impacto"
-            subtitle="Aplicaciones web en producción con arquitectura moderna y resultados medibles"
+            subtitle="Aplicaciones web, microservicios y APIs en producción con arquitectura moderna y resultados medibles"
           />
+
+          <div className="flex flex-wrap justify-center gap-2 mb-12">
+            {categoryFilters.map((cat) => {
+              const count = categoryCounts[cat.key];
+              const isActive = activeCategory === cat.key;
+              return (
+                <motion.button
+                  key={cat.key}
+                  onClick={() => startTransition(() => setActiveCategory(cat.key))}
+                  className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors flex items-center gap-2 ${
+                    isActive
+                      ? 'bg-gradient-to-r from-accent-500 to-accent-300 text-white border-transparent'
+                      : 'glass-panel text-slate-300 border-white/5 hover:border-accent-500/30 hover:text-accent-300'
+                  }`}
+                  whileHover={iconHover}
+                  whileTap={iconTap}
+                >
+                  {cat.label}
+                  <span className={`font-mono text-xs ${isActive ? 'text-white/80' : 'text-slate-500'}`}>
+                    {count}
+                  </span>
+                </motion.button>
+              );
+            })}
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <AnimatePresence mode="popLayout">
-              {projects.map((project, i) => (
+              {filteredProjects.map((project, i) => (
                 <ScrollReveal key={project.id} delay={i * 0.1}>
                   <motion.div
                     className="group glass-panel rounded-2xl border border-white/5 overflow-hidden cursor-pointer"

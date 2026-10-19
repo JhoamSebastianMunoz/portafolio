@@ -4,6 +4,12 @@ export interface TechnicalNotice {
   message: string;
 }
 
+export type ProjectCategory =
+  | 'frontend'
+  | 'backend-microservices'
+  | 'backend-api'
+  | 'static-educational';
+
 export interface Project {
   id: string;
   title: string;
@@ -12,6 +18,7 @@ export interface Project {
   period: string;
   features: string[];
   impact: string[];
+  category?: ProjectCategory;
   githubUrl?: string;
   liveUrl?: string;
   technicalNotice?: TechnicalNotice;

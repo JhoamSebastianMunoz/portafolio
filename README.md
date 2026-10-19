@@ -12,8 +12,8 @@ Un portafolio web moderno y profesional construido con Next.js 16 y Tailwind CSS
 - **Animaciones Interactivas**: Efectos de scroll, hover y transiciones con Framer Motion
 - **Totalmente Responsivo**: Optimizado para todos los dispositivos y tamaños de pantalla
 - **Navegación Suave**: Menú de navegación fijo con scroll suave entre secciones
-- **Gestión de Proyectos**: Sistema de filtrado interactivo por tecnologías
-- **Educación y Certificaciones**: Sección completa con 28 certificaciones actualizadas
+- **Gestión de Proyectos**: Galería de 24 proyectos con filtrado interactivo por categoría
+- **Educación y Certificaciones**: Sección completa con 29 certificaciones actualizadas
 - **Experiencia Profesional**: Línea de tiempo animada de experiencia laboral
 - **SEO Optimizado**: Metadatos optimizados para motores de búsqueda
 - **Código Limpio**: TypeScript para tipado estático y mejor mantenibilidad
@@ -64,9 +64,9 @@ src/
 
 1. **Hero**: Presentación con animación de partículas y efecto de escritura
 2. **Sobre Mí**: Perfil profesional con visualización de habilidades técnicas
-3. **Proyectos**: Galería de 6 proyectos con enlaces a demos y repositorios
+3. **Proyectos**: Galería de 24 proyectos (frontend, microservicios y APIs) con filtro por categoría y enlaces a demos y repositorios
 4. **Experiencia**: Línea de tiempo animada de experiencia profesional
-5. **Educación**: Formación académica y 28 certificaciones técnicas
+5. **Educación**: Formación académica y 29 certificaciones técnicas
 6. **Contacto**: Información de contacto y enlaces a redes sociales
 
 ## 🚀 Instalación y Ejecución
@@ -101,10 +101,11 @@ npm run dev
 
 ## 📊 Estadísticas del Proyecto
 
-- **28 Certificaciones** en tecnologías modernas
-- **Proyectos en producción** con arquitecturas escalables
-- **Experiencia en desarrollo web** con foco en Clean Code y performance
-- **Tecnologías**: React, Next.js, TypeScript, Node.js, PostgreSQL, Docker, Azure
+- **29 Certificaciones** en tecnologías modernas
+- **24 Proyectos** documentados (frontend, microservicios y APIs REST)
+- **12+ Proyectos en producción** desplegados en Vercel, Railway, Azure y Supabase
+- **Experiencia en desarrollo web** con foco en Clean Code, arquitecturas limpias y performance
+- **Tecnologías**: React, Next.js, TypeScript, Node.js, NestJS, Java/Spring Boot, PostgreSQL, MySQL, Docker, Azure, Supabase, Railway, Vercel
 
 ## 🎯 Objetivos del Proyecto
 
